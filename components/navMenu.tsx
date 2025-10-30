@@ -1,6 +1,8 @@
 "use client";
 
+import clsx from "clsx";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
   NavigationMenu,
@@ -14,6 +16,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 export function NavMenu() {
   const isMobile = useIsMobile();
+  const pathname = usePathname();
 
   return (
     <NavigationMenu viewport={isMobile}>
@@ -26,19 +29,25 @@ export function NavMenu() {
 
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/project">Projects</Link>
+            <Link href="/projects" className={clsx(pathname === "/projects" ? "bg-secondary" : "")}>
+              Projects
+            </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog" className={clsx(pathname === "/blog" ? "bg-secondary" : "")}>
+              Blog
+            </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
 
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/about">About</Link>
+            <Link href="/about" className={clsx(pathname === "/about" ? "bg-secondary" : "")}>
+              About
+            </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
