@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ModeToggle } from "./modeToggle";
 import { NavMenu } from "./navMenu";
+import { Button } from "./ui/button";
 
 export default function Header() {
   return (
@@ -15,7 +16,13 @@ export default function Header() {
 
           <NavMenu />
 
-          <ModeToggle />
+          <div className="flex items-center gap-4">
+            <ModeToggle />
+
+            <Button variant="outline" size="lg" className="GlowOnHover cursor-pointer text-lg">
+              <span className="font-bold">Hire Me</span>
+            </Button>
+          </div>
         </nav>
       </div>
     </header>

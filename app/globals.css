@@ -45,7 +45,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(0.961 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -57,7 +57,7 @@
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
+  --accent: oklch(1 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
@@ -146,7 +146,49 @@
     @apply text-xl font-bold;
   }
 
-  .btn {
-    @apply focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4;
+  .GlowOnHover {
+    @apply relative;
+
+    &:before {
+      @apply absolute -top-1 -left-1 z-[-1] h-[calc(100%+8px)] w-[calc(100%+8px)] rounded-md opacity-0 blur-sm transition-opacity ease-linear content-[''];
+      background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+      );
+      background-size: 400%;
+      animation: glowing 20s linear infinite;
+    }
+
+    &:after {
+      @apply bg-background absolute inset-0 z-[-1] rounded-md content-[''];
+    }
+
+    &:active:after {
+      @apply bg-transparent;
+    }
+
+    &:hover:before {
+      @apply opacity-100;
+    }
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
   }
 }
