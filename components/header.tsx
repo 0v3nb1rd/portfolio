@@ -20,7 +20,7 @@ export default function Header() {
             <ModeToggle />
 
             <Button variant="outline" size="lg" className="GlowOnHover cursor-pointer text-lg">
-              <span className="font-bold">Hire Me</span>
+              <span className="font-bold">Hire <i>Me</i></span>
             </Button>
           </div>
         </nav>
