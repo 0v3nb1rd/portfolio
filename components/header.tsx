@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
 
+import { Logo } from "./icons";
 import { MLogo } from "./mLogo";
 import { ModeToggle } from "./modeToggle";
 import { NavMenu } from "./navMenu";
@@ -15,14 +16,7 @@ export default function Header() {
         <nav className="flex items-center justify-between gap-4 py-4">
           <Link href="/" className="relative inline-block" aria-label={`Homepage - ${siteConfig.name}`} tabIndex={0}>
             <MLogo>
-              <Image
-                src="/ovbi-dark.png"
-                className="dark:invert"
-                alt={`${siteConfig.name} Logo`}
-                width={100}
-                height={100}
-                priority
-              />
+              <Logo />
             </MLogo>
           </Link>
 

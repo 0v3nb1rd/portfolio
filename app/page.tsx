@@ -80,7 +80,9 @@ export default function Home() {
                 <div className="bg-card text-foreground relative h-full w-full overflow-hidden rounded-md border shadow">
                   <Image
                     fill
+                    priority
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     src="https://res.cloudinary.com/dcey6ej58/image/upload/v1762178905/5-bg_rmuywa.jpg"
                     alt="relaxing image"
                   />
