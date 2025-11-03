@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { siteConfig } from "@/config/site";
+
 import { MLogo } from "./mLogo";
 import { ModeToggle } from "./modeToggle";
 import { NavMenu } from "./navMenu";
@@ -11,9 +13,16 @@ export default function Header() {
     <header>
       <div className="container">
         <nav className="flex items-center justify-between gap-4 py-4">
-          <Link href="/" className="relative inline-block" aria-label="Homepage" tabIndex={0}>
+          <Link href="/" className="relative inline-block" aria-label={`Homepage - ${siteConfig.name}`} tabIndex={0}>
             <MLogo>
-              <Image src="/ovbi-dark.png" className="dark:invert" alt="Logo" width={100} height={100} />
+              <Image
+                src="/ovbi-dark.png"
+                className="dark:invert"
+                alt={`${siteConfig.name} Logo`}
+                width={100}
+                height={100}
+                priority
+              />
             </MLogo>
           </Link>
 
@@ -22,10 +31,17 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <ModeToggle />
 
-            <Button variant="outline" size="lg" className="GlowOnHover relative cursor-pointer text-lg hover:scale-102">
-              <span className="font-bold">
-                Hire <i>Me</i>
-              </span>
+            <Button
+              variant="outline"
+              size="lg"
+              className="GlowOnHover relative cursor-pointer text-lg hover:scale-102"
+              asChild
+            >
+              <a href="/about#contact" aria-label={`Contact ${siteConfig.name}`}>
+                <span className="font-bold">
+                  Hire <i>Me</i>
+                </span>
+              </a>
             </Button>
           </div>
         </nav>

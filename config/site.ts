@@ -1,8 +1,21 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Portfolio Full Stack Developer",
-  description: "Portfolio Full Stack Developer",
+  name: "Nazar Khaylo",
+  title: `Full Stack Developer`,
+  description:
+    "Full-stack developer passionate about building clear, fast and purposeful software. Specialized in React, Next.js, and Node.js.",
+  keywords: [
+    "Nazar Khaylo",
+    "Full Stack Developer",
+    "JavaScript Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "Portfolio",
+  ],
+  url: "https://ovbi.dev",
+  locale: "en_US",
   navItems: [
     {
       label: "Home",
@@ -22,11 +35,11 @@ export const siteConfig = {
     },
   ],
   links: {
-    linkedin: "",
-    github: "",
-    instagram: "",
-    telegram: "",
-    email: "",
-    sponsor: "https://patreon.com/",
+    linkedin: "https://www.linkedin.com/in/0v3nb1rd/",
+    github: "https://github.com/0v3nb1rd/",
+    instagram: "https://www.instagram.com/0v3nb1rd/",
+    telegram: "https://t.me/0v3nb1rd",
+    email: "0v3nb1rd@gmail.com",
+    sponsor: "https://www.buymeacoffee.com/0v3nb1rd",
   },
 };
