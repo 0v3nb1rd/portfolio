@@ -11,8 +11,8 @@ export default function Home() {
             <ul className="--grid-rows-8 mx-auto grid max-w-6xl grid-cols-4 gap-5 lg:grid-cols-3">
               <li className="height-auto col-span-full lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-2">
                 <div className="bg-card text-foreground relative col-span-full flex h-full items-center justify-center overflow-hidden rounded-md border shadow">
-                  <div className="flex flex-col items-center justify-center gap-2">
-                    <Avatar className="size-24 text-2xl">
+                  <div className="flex flex-col items-center justify-center">
+                    <Avatar className="mb-2 size-24 text-2xl">
                       <AvatarImage
                         alt="photo of Nazar"
                         src="https://res.cloudinary.com/dcey6ej58/image/upload/w_400,h_400,c_fill,g_auto,q_auto,f_auto/linkedin_1_gvhlsr.png"
@@ -30,12 +30,12 @@ export default function Home() {
                 <div className="bg-card text-foreground relative col-span-full flex h-full items-center justify-center overflow-hidden rounded-md border p-4 shadow">
                   <div className="flex flex-col gap-2">
                     <h1 className="h1">Who am I?</h1>
-                    <p className="text-muted-foreground text-lg">
+                    <i className="text-muted-foreground text-lg">
                       Hello! I’m a full-stack developer passionate about building clear, fast and purposeful software. I
                       love clean design, structured code and learning from smart people. For me, development isn’t just
                       a job — it’s how I express creativity and logic together. Currently I focus on building scalable
                       frontends with React and robust APIs with Node.
-                    </p>
+                    </i>
                   </div>
                 </div>
               </li>
@@ -59,13 +59,13 @@ export default function Home() {
                   {/* <h1 className="h1">Stack of technologies</h1> */}
                   <div className="flex flex-col gap-2">
                     <h1 className="h1">Tools I use</h1>
-                    <p className="text-muted-foreground text-lg">
+                    <i className="text-muted-foreground text-lg">
                       I am a student of the National University of Kyiv, where I study at the Faculty of Computer
                       Science and Cybernetics. I am a student of the National University of Kyiv, where I study at the
                       Faculty of Computer Science and Cybernetics. I am a student of the National University of Kyiv,
                       where I study at the Faculty of Computer Science and Cybernetics. I am a student of the National
                       University of Kyiv, where I study at the Faculty of Computer Science and Cybernetics.
-                    </p>
+                    </i>
                   </div>
                 </div>
               </li>
