@@ -1,8 +1,15 @@
+import { Metadata } from "next";
+
 import { GithubSVG, LetterSVG, LinkedInSVG, LinkSVG } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 const LabelInputContainer = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return <div className={cn("mb-1 flex w-full flex-col space-y-2 md:mb-4", className)}>{children}</div>;
@@ -16,7 +23,7 @@ export default function About() {
           <ul className="mx-auto grid max-w-3xl grid-cols-2 grid-rows-2 gap-5">
             <li className="col-span-full lg:col-span-1 lg:row-span-2 lg:row-start-1">
               <a
-                href="https://github.com/0v3nb1rd"
+                href={siteConfig.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group text-foreground bg-card hover:bg-accent relative flex h-full flex-col rounded-md border shadow transition-all motion-reduce:transition-none"
@@ -33,7 +40,7 @@ export default function About() {
 
             <li className="col-span-full lg:col-span-1 lg:row-span-1 lg:row-start-2">
               <a
-                href="https://www.linkedin.com/in/0v3nb1rd/"
+                href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-card text-foreground hover:bg-accent relative flex h-full flex-col overflow-hidden rounded-md border shadow transition-all motion-reduce:transition-none"
@@ -49,7 +56,7 @@ export default function About() {
 
             <li className="col-span-full lg:col-span-1 lg:row-span-1">
               <a
-                href="mailto:0v3nb1rd@gmail.com"
+                href={`mailto:${siteConfig.links.email}`}
                 className="group bg-card text-foreground hover:bg-accent relative flex h-full flex-col overflow-hidden rounded-md border shadow transition-all motion-reduce:transition-none"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -57,13 +64,13 @@ export default function About() {
                 <div className="flex h-full items-center justify-center gap-2 p-4">
                   <div className="decoration-muted-foreground flex items-center gap-2 underline-offset-0 transition-all group-hover:underline group-hover:underline-offset-4">
                     <LetterSVG />
-                    <span className="text-center text-xl font-bold text-balance">0v3nb1rd@gmail.com</span>
+                    <span className="text-center text-xl font-bold text-balance">{siteConfig.links.email}</span>
                   </div>
                 </div>
               </a>
             </li>
 
-            <li className="col-span-full h-full">
+            <li id="contact" className="col-span-full h-full scroll-mt-24">
               <div className="bg-card flex h-full flex-col items-center justify-center gap-1 rounded-md border p-4 shadow">
                 <h1 className="text-center text-3xl font-bold">Contact with me</h1>
 
@@ -71,7 +78,7 @@ export default function About() {
                   You can also get in touch with me through this form below.
                 </p>
 
-                <form className="mt-8 mb-4 h-auto w-full max-w-lg">
+                <form className="mt-8 mb-4 h-auto w-full max-w-lg" aria-label="Contact form">
                   <LabelInputContainer>
                     <Input
                       className="bg-background border-input border"
@@ -79,6 +86,7 @@ export default function About() {
                       type="text"
                       placeholder="Name"
                       required
+                      aria-label="Your name"
                     />
                   </LabelInputContainer>
                   <LabelInputContainer>
@@ -88,6 +96,7 @@ export default function About() {
                       placeholder="Email"
                       type="email"
                       required
+                      aria-label="Your email"
                     />
                   </LabelInputContainer>
                   <LabelInputContainer>
@@ -97,14 +106,23 @@ export default function About() {
                       name="message"
                       placeholder="Message"
                       required
+                      aria-label="Your message"
                     />
                   </LabelInputContainer>
-                  <Input type="hidden" name="website" className="honeypot" />
+                  <Input
+                    type="hidden"
+                    name="website"
+                    className="honeypot"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    autoComplete="off"
+                  />
                   <Button
                     type="submit"
                     variant="outline"
                     size="lg"
-                    className="bg-background! hover:bg-accent! border-input w-full cursor-pointer font-bold shadow"
+                    className="bg-background! hover:bg-accent! border-input w-full cursor-pointer font-bold shadow disabled:opacity-50"
+                    aria-label="Send message"
                   >
                     Send
                   </Button>
