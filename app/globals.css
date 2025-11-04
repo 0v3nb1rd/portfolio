@@ -387,4 +387,17 @@
       @apply opacity-100;
     }
   }
+
+  /* //////////////////////////////////////////////////////////////////////////////// */
+  /* //// Post Image 3d Shadow */
+  /* //////////////////////////////////////////////////////////////////////////////// */
+  .postImage2D {
+    @apply relative z-10 flex items-center justify-center md:p-5;
+    > img:first-child {
+      @apply flex h-full w-full items-center justify-center rounded object-cover;
+    }
+    > img:nth-child(2) {
+      @apply absolute top-0 left-0 -z-10 h-full w-full rounded object-cover opacity-60 blur-[38px];
+    }
+  }
 }
