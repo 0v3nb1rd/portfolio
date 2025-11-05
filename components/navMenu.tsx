@@ -37,8 +37,8 @@ export function NavMenu() {
 
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/blog" className={clsx(pathname === "/blog" ? "bg-secondary" : "")}>
-              Blog
+            <Link href="/news" className={clsx(pathname === "/news" ? "bg-secondary" : "")}>
+              News
             </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
