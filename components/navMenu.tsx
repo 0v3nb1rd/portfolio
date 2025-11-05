@@ -17,6 +17,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 export function NavMenu() {
   const isMobile = useIsMobile();
   const pathname = usePathname();
+  const isDisabled = true;
 
   return (
     <NavigationMenu viewport={isMobile}>
@@ -37,7 +38,15 @@ export function NavMenu() {
 
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/news" className={clsx(pathname === "/news" ? "bg-secondary" : "")}>
+            <Link
+              href="/news"
+              className={
+                (clsx(pathname === "/news" ? "bg-secondary" : ""),
+                isDisabled && "pointer-events-none cursor-not-allowed opacity-40")
+              }
+              aria-disabled={isDisabled}
+              tabIndex={isDisabled ? -1 : undefined}
+            >
               News
             </Link>
           </NavigationMenuLink>
