@@ -1,11 +1,13 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+};
+
 export default function Blog() {
   return (
-    <main className="">
-      <section className="py-32">
-        <div className="container">
-          <h1 className="h1">Blog</h1>
-        </div>
-      </section>
+    <main className="container mx-auto max-w-6xl">
+      <section className="py-12">Blog posts will be here</section>
     </main>
   );
 }
