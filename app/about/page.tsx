@@ -64,7 +64,9 @@ export default function About() {
 
           <li id="contact" className="col-span-full h-full scroll-mt-24">
             <div className="bg-card flex h-full flex-col items-center justify-center gap-1 rounded-md border p-4 shadow">
-              <h1 className="text-center text-3xl font-bold">Contact with me</h1>
+              <h1 className="text-center text-3xl font-bold">
+                Contact <span className="text-primary tracking-tight font-medium">with me</span>
+              </h1>
 
               <p className="text-muted-foreground text-center text-xl">
                 You can also get in touch with me through this form below.

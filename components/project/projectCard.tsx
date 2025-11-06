@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { type ProjectType } from "@/config/data";
 
-import { GithubSVG, LinkSVG } from "../icons";
+import { GithubSVG, LinkSVG, SiteSVG } from "../icons";
 
 export function ProjectCard({ project }: { project: ProjectType }) {
   return (
@@ -22,14 +22,19 @@ export function ProjectCard({ project }: { project: ProjectType }) {
             alt={project.title}
             width={24}
             height={15}
-            className="absolute top-0 left-0 -z-10 h-full w-full object-[top_center] rounded object-cover opacity-40 blur-[38px] transition-opacity group-hover:opacity-100"
+            className="absolute top-0 left-0 -z-10 h-full w-full rounded object-cover object-[top_center] opacity-40 blur-[38px] transition-opacity group-hover:opacity-100"
           />
         </div>
       </div>
 
-      <div className="text-foreground bg-card relative col-span-full flex h-auto flex-col rounded-md border p-4 shadow lg:col-start-3 lg:col-end-5 lg:row-start-1 lg:row-end-3 lg:min-h-[250px]">
-        <h2>{project.title}</h2>
-        <p>{project.description}</p>
+      <div className="text-foreground bg-card relative col-span-full flex h-auto flex-col gap-2 rounded-md border p-4 shadow lg:col-start-3 lg:col-end-5 lg:row-start-1 lg:row-end-3 lg:min-h-[250px]">
+        <div className="mb-2 flex items-center gap-1">
+          <span className="bg-accent mr-2 rounded-md p-2">
+            <SiteSVG className="size-full" />
+          </span>
+          <h2 className="h2">{project.title}</h2>
+        </div>
+        <p className="text-muted-foreground text-lg">{project.description}</p>
       </div>
 
       <a
