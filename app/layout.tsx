@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
-import { Suspense, ViewTransition } from "react";
+import { Suspense } from "react";
 
 import Header from "@/components/header";
 import { BgScreenSVG } from "@/components/icons";
@@ -9,7 +9,6 @@ import { siteConfig } from "@/config/site";
 
 import "./globals.css";
 import { Providers } from "./providers";
-import ViewTransitionWrap from "./view-transition-wrap";
 
 export const metadata: Metadata = {
   title: {
@@ -51,15 +50,15 @@ export default function RootLayout({
             disableTransitionOnChange: true,
           }}
         >
-          <Suspense fallback={<div>Loading...</div>}>
-            <ViewTransitionWrap>
-              <Header />
-              {children}
+          <Suspense
+            fallback={<div className="text-foreground flex h-screen items-center justify-center">Loading...</div>}
+          >
+            <Header />
+            {children}
 
-              <div className="fixed top-1/2 left-1/2 z-[-1] size-full -translate-x-1/2 -translate-y-1/2 overflow-visible opacity-60">
-                <BgScreenSVG className="size-full" />
-              </div>
-            </ViewTransitionWrap>
+            <div className="fixed top-1/2 left-1/2 z-[-1] size-full -translate-x-1/2 -translate-y-1/2 overflow-visible opacity-60">
+              <BgScreenSVG className="size-full" />
+            </div>
           </Suspense>
         </Providers>
       </body>
