@@ -1,10 +1,11 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
 
 import { Logo } from "./icons";
-import { MLogo } from "./mLogo";
+import { MLogo } from "./m-logo";
 import { ModeToggle } from "./mode-toggle";
 import { NavMenu } from "./nav-menu";
 import { Button } from "./ui/button";
@@ -31,9 +32,14 @@ export default function Header() {
               className="GlowOnHover relative cursor-pointer text-lg hover:scale-102"
               asChild
             >
-              <a href="/about#contact" aria-label={`Contact ${siteConfig.name}`}>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="./cv-nazar-kahylo.pdf"
+                aria-label={`Contact ${siteConfig.name}`}
+              >
                 <span className="font-bold">
-                  Hire <i>Me</i>
+                  Show <i>CV</i>
                 </span>
               </a>
             </Button>

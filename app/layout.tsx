@@ -1,7 +1,9 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import Header from "@/components/header";
+import { BgScreenSVG } from "@/components/icons";
 import { fontMono, fontSans, geistMono, geistSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
@@ -39,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={clsx(fontSans.variable, fontMono.variable, "antialiased")}>
+      <body className={clsx(fontSans.variable, fontMono.variable, "relative antialiased")}>
         <Providers
           themeProps={{
             attribute: "class",
@@ -48,8 +50,16 @@ export default function RootLayout({
             disableTransitionOnChange: true,
           }}
         >
-          <Header />
-          {children}
+          <Suspense
+            fallback={<div className="text-foreground flex h-screen items-center justify-center">Loading...</div>}
+          >
+            <Header />
+            {children}
+
+            <div className="fixed top-1/2 left-1/2 z-[-1] size-full -translate-x-1/2 -translate-y-1/2 overflow-visible opacity-60">
+              <BgScreenSVG className="size-full" />
+            </div>
+          </Suspense>
         </Providers>
       </body>
     </html>

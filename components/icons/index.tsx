@@ -2,6 +2,7 @@ import { SvgProps } from "@/types";
 
 export * from "./logo";
 export * from "./tech-stack";
+export * from "./bg-screen";
 
 export const GithubSVG = (props: SvgProps) => {
   return (

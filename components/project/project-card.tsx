@@ -1,12 +1,30 @@
+"use client";
+
+import { motion, type Variants } from "motion/react";
 import Image from "next/image";
 
 import { type ProjectType } from "@/config/data";
 
 import { GithubSVG, LinkSVG, SiteSVG } from "../icons";
 
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+};
+
 export function ProjectCard({ project }: { project: ProjectType }) {
   return (
-    <li className="group grid grid-cols-4 gap-5">
+    <motion.li className="group grid grid-cols-4 gap-5" variants={cardVariants}>
       <div className="relative z-0 rounded-md border shadow lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4">
         <div className="-bg-card postImage2D relative flex size-full items-center justify-center gap-4">
           <Image
@@ -58,6 +76,6 @@ export function ProjectCard({ project }: { project: ProjectType }) {
           <GithubSVG />
         </div>
       </a>
-    </li>
+    </motion.li>
   );
 }
