@@ -38,7 +38,7 @@ export default function About() {
               className="group bg-card text-foreground hover:bg-accent relative flex h-full flex-col overflow-hidden rounded-md border shadow transition-all motion-reduce:transition-none"
             >
               <div className="flex h-full items-center justify-center gap-2 p-4">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   <LinkedInSVG />
                   <span className="text-center text-xl font-bold">LinkedIn</span>
                 </div>
@@ -54,7 +54,7 @@ export default function About() {
               rel="noopener noreferrer"
             >
               <div className="flex h-full items-center justify-center gap-2 p-4">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   <LetterSVG />
                   <span className="text-center text-xl font-bold text-balance">{siteConfig.links.email}</span>
                 </div>
@@ -64,7 +64,9 @@ export default function About() {
 
           <li id="contact" className="col-span-full h-full scroll-mt-24">
             <div className="bg-card flex h-full flex-col items-center justify-center gap-1 rounded-md border p-4 shadow">
-              <h1 className="text-center text-3xl font-bold">Contact with me</h1>
+              <h1 className="text-center text-3xl font-bold">
+                Contact <span className="text-primary tracking-tight font-medium">with me</span>
+              </h1>
 
               <p className="text-muted-foreground text-center text-xl">
                 You can also get in touch with me through this form below.
