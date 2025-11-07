@@ -1,6 +1,6 @@
 import { projects } from "@/config/data";
 
-import { ProjectCard } from "./projectCard";
+import { ProjectCard } from "./project-card";
 
 export function ProjectList() {
   return (

@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 type ExperienceType = {
   position: string;
   description: string;
@@ -38,13 +40,13 @@ const experienceItems = experienceData.map((experience) => {
   return (
     <li className="flex flex-col" key={experience.company}>
       <b className="text-lg">
-        - {experience.position} <span className="text-base font-medium text-muted-foreground">({date})</span>
+        - {experience.position} <span className="text-muted-foreground text-base font-medium">({date})</span>
       </b>
       {/* <i className="text-muted-foreground">{experience.description}</i> */}
     </li>
   );
 });
 
-export function ExperienceList() {
-  return <ul className="flex flex-col gap-1">{experienceItems}</ul>;
+export function ExperienceList({ className }: { className?: string }) {
+  return <ul className={cn("flex flex-col gap-1", className)}>{experienceItems}</ul>;
 }

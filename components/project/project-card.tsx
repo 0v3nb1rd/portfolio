@@ -7,13 +7,13 @@ import { GithubSVG, LinkSVG, SiteSVG } from "../icons";
 export function ProjectCard({ project }: { project: ProjectType }) {
   return (
     <li className="group grid grid-cols-4 gap-5">
-      <div className="relative z-0 lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4">
-        <div className="-bg-card postImage2D text-foreground relative flex h-full items-center justify-center gap-4 rounded-md border p-4 shadow">
+      <div className="relative z-0 rounded-md border shadow lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4">
+        <div className="-bg-card postImage2D relative flex size-full items-center justify-center gap-4">
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover object-[top_center] opacity-80 transition-opacity group-hover:opacity-100"
+            className="rounded-md object-cover object-[top_center] opacity-80 transition-opacity duration-200 group-hover:opacity-100"
             placeholder="blur"
             blurDataURL="https://res.cloudinary.com/dcey6ej58/image/upload/g_auto,q_auto,f_auto/thumbnail_gray.png"
           />
@@ -22,7 +22,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
             alt={project.title}
             width={24}
             height={15}
-            className="absolute top-0 left-0 -z-10 h-full w-full rounded object-cover object-[top_center] opacity-40 blur-[38px] transition-opacity group-hover:opacity-100"
+            className="absolute top-0 left-0 -z-10 h-full w-full rounded object-cover object-[top_center] opacity-20 blur-[38px] transition-opacity group-hover:opacity-60"
           />
         </div>
       </div>
@@ -30,7 +30,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
       <div className="text-foreground bg-card relative col-span-full flex h-auto flex-col gap-2 rounded-md border p-4 shadow lg:col-start-3 lg:col-end-5 lg:row-start-1 lg:row-end-3 lg:min-h-[250px]">
         <div className="mb-2 flex items-center gap-1">
           <span className="bg-accent mr-2 rounded-md p-2">
-            <SiteSVG className="size-full" />
+            <SiteSVG className="w-6" />
           </span>
           <h2 className="h2">{project.title}</h2>
         </div>

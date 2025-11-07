@@ -5,8 +5,8 @@ import { siteConfig } from "@/config/site";
 
 import { Logo } from "./icons";
 import { MLogo } from "./mLogo";
-import { ModeToggle } from "./modeToggle";
-import { NavMenu } from "./navMenu";
+import { ModeToggle } from "./mode-toggle";
+import { NavMenu } from "./nav-menu";
 import { Button } from "./ui/button";
 
 export default function Header() {

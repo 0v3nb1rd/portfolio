@@ -14,6 +14,8 @@ export const siteConfig = {
     "Node.js Developer",
     "Portfolio",
   ],
+  aboutText:
+    "Hello! I’m a full-stack developer passionate about building clear, fast and purposeful software. I love clean design, structured code and learning from smart people. For me, development isn’t just a job — it’s how I express creativity and logic together. Currently I focus on building scalable frontends with React and robust APIs with Node.",
   url: "https://ovbi.dev",
   locale: "en_US",
   navItems: [
