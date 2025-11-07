@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Projects() {
   return (
-    <main className="container mx-auto max-w-6xl">
+    <main id="projects" className="container mx-auto max-w-6xl">
       <section className="py-12">
         <ProjectList />
       </section>

@@ -28,7 +28,7 @@ export function HomeGrid() {
       <li className="height-auto relative col-span-full flex flex-col overflow-hidden rounded-md border shadow lg:col-span-2 lg:row-span-1 lg:row-start-1">
         <div className="bg-card text-foreground relative flex h-full flex-col justify-center gap-2 p-4">
           <h1 className="h1">Who am I?</h1>
-          <i className="text-muted-foreground p-2 text-justify text-lg">{siteConfig.aboutText}</i>
+          <i className="text-muted-foreground p-2 text-lg">{siteConfig.aboutText}</i>
         </div>
       </li>
 

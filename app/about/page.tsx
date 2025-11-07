@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
-import { ContactForm } from "@/components/contactForm";
-import { GithubSVG, LetterSVG, LinkedInSVG, LinkSVG } from "@/components/icons";
+import { ContactForm } from "@/components/contact-form";
+import { GithubSVG, LetterSVG, LinkedInSVG } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <main className="container mx-auto max-w-6xl">
+    <main id="about" className="container mx-auto max-w-6xl">
       <section className="mx-auto flex min-h-[calc(100vh-6rem)] max-w-3xl flex-col justify-center py-12">
         <ul className="grid grid-cols-2 grid-rows-2 gap-5">
           <li className="col-span-full lg:col-span-1 lg:row-span-2 lg:row-start-1">
@@ -65,7 +65,7 @@ export default function About() {
           <li id="contact" className="col-span-full h-full scroll-mt-24">
             <div className="bg-card flex h-full flex-col items-center justify-center gap-1 rounded-md border p-4 shadow">
               <h1 className="text-center text-3xl font-bold">
-                Contact <span className="text-primary tracking-tight font-medium">with me</span>
+                Contact <span className="text-primary font-medium tracking-tight">with me</span>
               </h1>
 
               <p className="text-muted-foreground text-center text-xl">

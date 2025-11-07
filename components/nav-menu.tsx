@@ -17,48 +17,19 @@ import { useIsMobile } from "@/hooks/use-mobile";
 export function NavMenu() {
   const isMobile = useIsMobile();
   const pathname = usePathname();
-  const isDisabled = true;
 
   return (
     <NavigationMenu viewport={isMobile}>
       <NavigationMenuList className="flex-wrap">
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/">Home</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/projects" className={clsx(pathname === "/projects" ? "bg-secondary" : "")}>
-              Projects
-            </Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link
-              href="/news"
-              className={
-                (clsx(pathname === "/news" ? "bg-secondary" : ""),
-                isDisabled && "pointer-events-none cursor-not-allowed opacity-40")
-              }
-              aria-disabled={isDisabled}
-              tabIndex={isDisabled ? -1 : undefined}
-            >
-              News
-            </Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/about" className={clsx(pathname === "/about" ? "bg-secondary" : "")}>
-              About
-            </Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
+        {siteConfig.navItems.map((item) => (
+          <NavigationMenuItem key={item.href}>
+            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+              <Link href={item.href} className={clsx(pathname === item.href ? "bg-secondary" : "")}>
+                {item.label}
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   );
