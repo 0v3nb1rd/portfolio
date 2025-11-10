@@ -8,6 +8,7 @@ import { fontMono, fontSans, geistMono, geistSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
 import "./globals.css";
+import Loading from "./loading";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -50,9 +51,7 @@ export default function RootLayout({
             disableTransitionOnChange: true,
           }}
         >
-          <Suspense
-            fallback={<div className="text-foreground flex h-screen items-center justify-center">Loading...</div>}
-          >
+          <Suspense fallback={<Loading />}>
             <Header />
             {children}
 
