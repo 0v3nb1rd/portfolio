@@ -5,8 +5,6 @@ import { ContactForm } from "@/components/contact-form";
 import { GithubSVG, LetterSVG, LinkedInSVG } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 
-import { AboutMotion } from "./motion";
-
 export const metadata: Metadata = {
   title: "About",
 };
