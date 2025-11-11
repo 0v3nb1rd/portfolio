@@ -35,6 +35,10 @@ export const siteConfig = {
       label: "About",
       href: "/about",
     },
+    {
+      label: "Studio",
+      href: "/studio",
+    },
   ],
   links: {
     linkedin: "https://www.linkedin.com/in/0v3nb1rd/",

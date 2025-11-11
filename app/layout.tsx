@@ -1,14 +1,10 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
-import Header from "@/components/header";
-import { BgScreenSVG } from "@/components/icons";
 import { fontMono, fontSans, geistMono, geistSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 
 import "./globals.css";
-import Loading from "./loading";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -51,14 +47,7 @@ export default function RootLayout({
             disableTransitionOnChange: true,
           }}
         >
-          <Suspense fallback={<Loading />}>
-            <Header />
-            {children}
-
-            <div className="fixed top-1/2 left-1/2 z-[-1] size-full -translate-x-1/2 -translate-y-1/2 overflow-visible opacity-60">
-              <BgScreenSVG className="size-full" />
-            </div>
-          </Suspense>
+          {children}
         </Providers>
       </body>
     </html>
