@@ -22,22 +22,27 @@ export const siteConfig = {
     {
       label: "Home",
       href: "/",
+      target: "_self",
     },
     {
       label: "Projects",
       href: "/projects",
+      target: "_self",
     },
     {
       label: "News",
       href: "/news",
+      target: "_self",
     },
     {
       label: "About",
       href: "/about",
+      target: "_self",
     },
     {
       label: "Studio",
       href: "/studio",
+      target: "_blank",
     },
   ],
   links: {

@@ -24,7 +24,7 @@ export function NavMenu() {
         {siteConfig.navItems.map((item) => (
           <NavigationMenuItem key={item.href}>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-              <Link href={item.href} className={clsx(pathname === item.href ? "bg-secondary" : "")}>
+              <Link target={item.target} href={item.href} className={clsx(pathname === item.href ? "bg-secondary" : "")}>
                 {item.label}
               </Link>
             </NavigationMenuLink>
