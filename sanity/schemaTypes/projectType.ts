@@ -1,14 +1,54 @@
-import { defineField, defineType } from "sanity";
+import { PackageIcon } from "lucide-react";
+import { defineArrayMember, defineField, defineType } from "sanity";
+
+import { StackOptionsInput } from "@/sanity/components/stackOptionsInput";
+
+const STACK_OPTIONS: { title: string; value: string }[] = [
+  { title: "HTML", value: "html" },
+  { title: "CSS", value: "css" },
+  { title: "LESS", value: "less" },
+  { title: "SCSS", value: "scss" },
+  { title: "Bootstrap", value: "bootstrap" },
+  { title: "jQuery", value: "jquery" },
+  { title: "Tailwind CSS", value: "tailwind" },
+  { title: "React", value: "react" },
+  { title: "TypeScript", value: "typescript" },
+  { title: "Vue", value: "vue" },
+  { title: "Next.js", value: "nextjs" },
+  { title: "NestJS", value: "nestjs" },
+  { title: "Node.js", value: "nodejs" },
+  { title: "Docker", value: "docker" },
+  { title: "Gulp", value: "gulp" },
+  { title: "PHP", value: "php" },
+  { title: "Laravel", value: "laravel" },
+  { title: "From Scratch", value: "from-scratch" },
+  { title: "Support", value: "support" },
+  { title: "Update", value: "update" },
+  { title: "Refactor", value: "refactor" },
+  { title: "Figma", value: "figma" },
+];
 
 export const projectType = defineType({
   name: "project",
   title: "Project",
+  icon: PackageIcon,
+  description: "A project is a software development project",
   type: "document",
   fields: [
     defineField({
       name: "title",
       title: "Title",
       type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: {
+        source: "title",
+        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, "-"),
+      },
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -49,36 +89,17 @@ export const projectType = defineType({
       title: "Tech Stack",
       type: "array",
       of: [
-        {
+        defineArrayMember({
           type: "string",
-          options: {
-            list: [
-              { title: "HTML", value: "html" },
-              { title: "CSS", value: "css" },
-              { title: "LESS", value: "less" },
-              { title: "SCSS", value: "scss" },
-              { title: "Bootstrap", value: "bootstrap" },
-              { title: "jQuery", value: "jquery" },
-              { title: "Tailwind CSS", value: "tailwind" },
-              { title: "React", value: "react" },
-              { title: "TypeScript", value: "typescript" },
-              { title: "Vue", value: "vue" },
-              { title: "Next.js", value: "nextjs" },
-              { title: "NestJS", value: "nestjs" },
-              { title: "Node.js", value: "nodejs" },
-              { title: "Docker", value: "docker" },
-              { title: "Gulp", value: "gulp" },
-              { title: "PHP", value: "php" },
-              { title: "Laravel", value: "laravel" },
-              { title: "From Scratch", value: "from-scratch" },
-              { title: "Support", value: "support" },
-              { title: "Update", value: "update" },
-              { title: "Refactor", value: "refactor" },
-              { title: "Figma", value: "figma" },
-            ],
-          },
-        },
+        }),
       ],
+      options: {
+        list: STACK_OPTIONS,
+        sortable: false,
+      },
+      components: {
+        input: StackOptionsInput,
+      },
       validation: (rule) => rule.required().min(1),
     }),
     defineField({
