@@ -5,7 +5,12 @@ const nextConfig: NextConfig = {
     viewTransition: true,
   },
   images: {
-    remotePatterns: [{ hostname: "res.cloudinary.com" }, { hostname: "media2.dev.to" }],
+    remotePatterns: [
+      { hostname: "res.cloudinary.com" },
+      { hostname: "media2.dev.to" },
+      { protocol: "https", hostname: "cdn.sanity.io" },
+      { protocol: "https", hostname: "placehold.co" },
+    ],
   },
 };
 

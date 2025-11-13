@@ -26,6 +26,9 @@ const STACK_OPTIONS: { title: string; value: string }[] = [
   { title: "Update", value: "update" },
   { title: "Refactor", value: "refactor" },
   { title: "Figma", value: "figma" },
+  { title: "Stripe", value: "stripe" },
+  { title: "RestAPI", value: "restapi" },
+  { title: "GraphQL", value: "graphql" },
 ];
 
 export const projectType = defineType({
@@ -102,6 +105,26 @@ export const projectType = defineType({
       },
       validation: (rule) => rule.required().min(1),
     }),
+    // defineField({
+    //   name: "languages",
+    //   title: "Languages",
+    //   type: "array",
+    //   of: [
+    //     {
+    //       type: "string",
+    //     },
+    //   ],
+    //   options: {
+    //     list: [
+    //       { title: "English", value: "en" },
+    //       { title: "German", value: "de" },
+    //       { title: "French", value: "fr" },
+    //       { title: "Spanish", value: "es" },
+    //       { title: "Italian", value: "it" },
+    //     ],
+    //     layout: "grid",
+    //   },
+    // }),
     defineField({
       name: "url",
       title: "Project URL",

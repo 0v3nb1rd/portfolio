@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "predev": "pnpm run typegen --enforce-required-fields",
+    "prebuild": "pnpm run typegen --enforce-required-fields",
+    "typegen": "sanity schema extract && sanity typegen generate --enforce-required-fields"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",
@@ -15,6 +18,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@sanity/client": "^7.12.1",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.15.0",
     "class-variance-authority": "^0.7.1",

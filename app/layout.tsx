@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { fontMono, fontSans, geistMono, geistSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
+import { SanityLive } from "@/sanity/lib/live";
 
 import "./globals.css";
 import { Providers } from "./providers";
@@ -48,6 +49,7 @@ export default function RootLayout({
           }}
         >
           {children}
+          <SanityLive />
         </Providers>
       </body>
     </html>

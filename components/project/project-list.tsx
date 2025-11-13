@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { ViewTransition } from "react";
 
-import { projects } from "@/config/data";
+import { Project } from "@/types/sanity";
 
 import { ProjectCard } from "./project-card";
 
@@ -18,12 +18,12 @@ const containerVariants = {
   },
 };
 
-export function ProjectList() {
+export function ProjectList({ projects }: { projects: Project[] }) {
   return (
     <ViewTransition name="page">
       <motion.ul className="flex flex-col gap-18" variants={containerVariants} initial="hidden" animate="visible">
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard key={project._id} project={project} />
         ))}
       </motion.ul>
     </ViewTransition>
