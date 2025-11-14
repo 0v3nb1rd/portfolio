@@ -25,7 +25,7 @@ const cardVariants: Variants = {
 
 export function ProjectCard({ project }: { project: Project }) {
   const imageUrl = project?.image
-    ? urlFor(project.image).width(920).quality(80).auto("format").url()
+    ? urlFor(project.image).withOptions({ w: 540, h: 352, q: 80, fit: "crop", crop: "top", auto: "format" }).url()
     : "https://placehold.co/550x310/png";
 
   const logoUrl = project?.logo
