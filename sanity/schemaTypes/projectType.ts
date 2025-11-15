@@ -22,15 +22,16 @@ const STACK_OPTIONS: { title: string; value: string }[] = [
   { title: "Gulp", value: "gulp" },
   { title: "PHP", value: "php" },
   { title: "Laravel", value: "laravel" },
+  { title: "Figma", value: "figma" },
+  { title: "Stripe", value: "stripe" },
+  { title: "API", value: "api" },
+  { title: "RestAPI", value: "restapi" },
+  { title: "GraphQL", value: "graphql" },
+  { title: "GSAP", value: "gsap" },
   // { title: "From Scratch", value: "from-scratch" },
   // { title: "Support", value: "support" },
   // { title: "Update", value: "update" },
   // { title: "Refactor", value: "refactor" },
-  { title: "Figma", value: "figma" },
-  { title: "Stripe", value: "stripe" },
-  { title: "RestAPI", value: "restapi" },
-  { title: "GraphQL", value: "graphql" },
-  { title: "GSAP", value: "gsap" },
 ];
 
 export const projectType = defineType({
@@ -61,6 +62,15 @@ export const projectType = defineType({
       title: "Description",
       type: "text",
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "favicon",
+      title: "Logo",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      // validation: (rule) => rule.required(),
     }),
     defineField({
       name: "logo",
@@ -149,7 +159,7 @@ export const projectType = defineType({
   preview: {
     select: {
       title: "title",
-      media: "logo",
+      media: "favicon",
       subtitle: "date",
     },
   },

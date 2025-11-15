@@ -25,6 +25,18 @@ export type Project = {
   title?: string;
   slug?: Slug;
   description?: string;
+  favicon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   logo?: {
     asset?: {
       _ref: string;
@@ -211,6 +223,18 @@ export type PROJECTS_QUERYResult = Array<{
   title?: string;
   slug?: Slug;
   description?: string;
+  favicon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   logo?: {
     asset?: {
       _ref: string;
