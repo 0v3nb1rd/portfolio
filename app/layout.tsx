@@ -55,9 +55,7 @@ export default function RootLayout({
             <Header />
             {children}
 
-            <div className="fixed top-1/2 left-1/2 z-[-1] size-full -translate-x-1/2 -translate-y-1/2 overflow-visible opacity-60">
-              <BgScreenSVG className="size-full" />
-            </div>
+            <BgScreenSVG className="fixed inset-0 z-[-1] flex h-[1200px] w-[1200px]" />
           </Suspense>
         </Providers>
       </body>
