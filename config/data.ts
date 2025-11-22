@@ -23,6 +23,19 @@ enum Stack {
   FIGMA = "figma",
 }
 
+export type NewsType = {
+  id: string;
+  title: string;
+  url: string;
+  source: "devto" | "hackernews";
+  author?: string;
+  publishedAt?: string;
+  score?: number;
+  tags?: string[];
+  image?: string;
+  description?: string;
+};
+
 export type ProjectType = {
   id: number;
   logo: string;

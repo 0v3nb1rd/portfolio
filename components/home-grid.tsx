@@ -36,8 +36,8 @@ export function HomeGrid() {
 
         <li className="height-auto bg-accent relative col-span-full row-start-2 row-end-3 flex flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-1 lg:row-start-2">
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
-            <h1 className="h1">
-              Frontend <span className="text-primary font-medium tracking-tight">Developer</span>
+            <h1 className="h1 text-center text-balance">
+              <span className="font-medium tracking-tight">👨‍💻 Frontend Developer</span>
             </h1>
           </div>
 
@@ -49,7 +49,7 @@ export function HomeGrid() {
         <li className="height-auto bg-accent relative col-span-2 hidden flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-3 lg:flex">
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
             <h2 className="h1 text-center text-balance">
-              "<span className="font-medium tracking-tight">Make it happen.</span>"
+              <span className="font-medium tracking-tight">🚀 Make it happen.</span>
             </h2>
           </div>
 
@@ -81,14 +81,12 @@ export function HomeGrid() {
         </li>
 
         <li className="height-auto bg-card relative col-span-full flex flex-col overflow-hidden rounded-md border shadow lg:col-span-2 lg:col-start-2 lg:row-span-1 lg:row-start-4">
-          <ViewTransition name="page-projects">
-            <div className="text-foreground flex h-full items-center justify-center p-4">
-              <div className="flex flex-1 flex-col gap-2">
-                <h1 className="h1">Experience</h1>
-                <ExperienceList className="p-2" />
-              </div>
+          <div className="text-foreground flex h-full items-center justify-center p-4">
+            <div className="flex flex-1 flex-col gap-2">
+              <h1 className="h1">Experience</h1>
+              <ExperienceList className="p-2" />
             </div>
-          </ViewTransition>
+          </div>
 
           <div className="text-accent absolute inset-y-0 -right-90 size-full rotate-45">
             <BgTTenSVG className="h-auto w-full" />
