@@ -1,14 +1,11 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
-import Header from "@/components/header";
-import { BgScreenSVG } from "@/components/icons";
 import { fontMono, fontSans, geistMono, geistSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
+import { SanityLive } from "@/sanity/lib/live";
 
 import "./globals.css";
-import Loading from "./loading";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -51,12 +48,8 @@ export default function RootLayout({
             disableTransitionOnChange: true,
           }}
         >
-          <Suspense fallback={<Loading />}>
-            <Header />
-            {children}
-
-            <BgScreenSVG className="fixed inset-0 z-[-1] flex h-[1200px] w-[1200px]" />
-          </Suspense>
+          {children}
+          <SanityLive />
         </Providers>
       </body>
     </html>
