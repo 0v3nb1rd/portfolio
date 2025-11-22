@@ -13,7 +13,8 @@ export function ContactForm() {
       action="https://getform.io/f/c3ab79b8-6485-4f71-be1d-7e3cb28dcfb1"
       method="POST"
       className="mt-8 mb-8 h-auto w-full max-w-2xl"
-      aria-label="Contact form">
+      aria-label="Contact form"
+    >
       <LabelInputContainer>
         <Input
           className="bg-background border-input border"
