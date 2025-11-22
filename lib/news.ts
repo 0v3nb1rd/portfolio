@@ -74,9 +74,8 @@ async function fetchHN(limit: number): Promise<NewsType[]> {
   const ids: number[] = await getJSON(`${HACKER_NEWS_API_URL}topstories.json`);
   const top = ids.slice(0, Math.min(limit, 50));
   const items = await Promise.all(top.map((id) => getJSON(`${HACKER_NEWS_API_URL}item/${id}.json`)));
-  const base: NewsType[] = items.filter(Boolean).map((i: HackerNewsData) => {
-    // console.log("Hacker News data: ", i);
 
+  const base: NewsType[] = items.filter(Boolean).map((i: HackerNewsData) => {
     return {
       id: `hn_${i.id}`,
       title: i.title,
@@ -88,14 +87,18 @@ async function fetchHN(limit: number): Promise<NewsType[]> {
     };
   });
 
-  // Light OG-enrichment for the first N (to not exceed the limit)
-  const ENRICH_N = Math.min(limit ?? 12, base.length);
+  // Limit the number of OG requests for faster loading
+  const ENRICH_N = Math.min(3, base.length);
   await Promise.all(
     base.slice(0, ENRICH_N).map(async (it) => {
       if (!it.url) return;
-      const og = await enrichWithOG(it.url);
-      it.image = it.image || og.image;
-      it.description = it.description || og.description;
+      try {
+        const og = await enrichWithOG(it.url);
+        it.image = it.image || og.image;
+        it.description = it.description || og.description;
+      } catch (error) {
+        console.error(`Failed to enrich ${it.url}:`, error);
+      }
     })
   );
 
