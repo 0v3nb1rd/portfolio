@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-
 import Header from "@/components/header";
 import { BgScreenSVG } from "@/components/icons";
 

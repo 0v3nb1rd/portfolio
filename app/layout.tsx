@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
 
-import { fontMono, fontSans, geistMono, geistSans } from "@/config/fonts";
+import { fontMono, fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { SanityLive } from "@/sanity/lib/live";
 

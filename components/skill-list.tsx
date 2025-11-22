@@ -18,7 +18,6 @@ import {
 } from "@/components/icons";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
-let color: string = "#9ca3af";
 export const techIconList: { name: string; icon: React.ReactNode }[] = [
   {
     name: "JavaScript",
