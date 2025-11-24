@@ -25,9 +25,19 @@ const cardVariants: Variants = {
 };
 
 export function ProjectCard({ project }: { project: Project }) {
-  const imageUrl = project?.image
-    ? urlFor(project.image).withOptions({ w: 540, h: 352, q: 80, fit: "crop", crop: "top", auto: "format" }).url()
+  const imageBuilder = project?.image
+    ? urlFor(project.image).width(1080).height(704).quality(92).fit("crop").auto("format")
+    : null;
+
+  const imageUrl = imageBuilder
+    ? project.image?.hotspot
+      ? imageBuilder.url()
+      : imageBuilder.crop("top").url()
     : "https://placehold.co/550x310/png";
+
+  const imageUrlBlur = project?.image
+    ? urlFor(project.image).width(40).height(26).quality(20).fit("crop").crop("top").auto("format").url()
+    : undefined;
 
   return (
     <motion.li className="group grid grid-cols-4 gap-5" variants={cardVariants}>
@@ -37,18 +47,21 @@ export function ProjectCard({ project }: { project: Project }) {
             src={imageUrl}
             alt={project.title || "Project image"}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 540px"
             className="rounded-md object-cover object-[top_center] opacity-80 transition-opacity duration-200 group-hover:opacity-100"
             loading="lazy"
-            // placeholder="blur"
-            // blurDataURL=""
+            quality={92}
+            placeholder={imageUrlBlur ? "blur" : "empty"}
+            blurDataURL={imageUrlBlur}
           />
           <Image
-            src={imageUrl}
-            alt={project.title || "Project image"}
+            src={imageUrlBlur || imageUrl}
+            alt=""
             width={24}
             height={15}
             loading="lazy"
             className="absolute top-0 left-0 -z-10 h-full w-full rounded object-cover object-[top_center] opacity-20 blur-[38px] transition-opacity group-hover:opacity-60"
+            aria-hidden="true"
           />
         </div>
       </div>
@@ -59,7 +72,7 @@ export function ProjectCard({ project }: { project: Project }) {
             {project?.favicon ? (
               <Image
                 className="rounded"
-                src={urlFor(project.favicon).height(60).width(60).quality(80).auto("format").url()}
+                src={urlFor(project.favicon).height(60).width(60).quality(90).auto("format").url()}
                 alt={project.title || "Project logo"}
                 width={24}
                 height={24}
