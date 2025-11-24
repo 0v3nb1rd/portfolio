@@ -211,7 +211,7 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: app/(www)/projects/page.tsx
+// Source: ./lib/queries/index.ts
 // Variable: PROJECTS_QUERY
 // Query: *[_type == "project"] | order(date desc)
 export type PROJECTS_QUERYResult = Array<{
@@ -279,6 +279,6 @@ export type PROJECTS_QUERYResult = Array<{
 
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "project"] | order(date desc)': PROJECTS_QUERYResult;
+    '*[_type == "project"] | order(date desc)': PROJECTS_QUERYResult;
   }
 }

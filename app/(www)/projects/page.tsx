@@ -1,18 +1,15 @@
 import { Metadata } from "next";
-import { defineQuery } from "next-sanity";
 
 import { ProjectList } from "@/components/project";
-import { sanityFetch } from "@/sanity/lib/live";
+import { PROJECTS_QUERY } from "@/lib/queries";
+import { client } from "@/sanity/lib/client";
 
 export const metadata: Metadata = {
   title: "Projects",
 };
 
-const PROJECTS_QUERY = defineQuery(`
-  *[_type == "project"] | order(date desc)`);
-
 export default async function Projects() {
-  const { data: projects } = await sanityFetch({ query: PROJECTS_QUERY });
+  const projects = await client.fetch(PROJECTS_QUERY);
 
   return (
     <main id="projects" className="container mx-auto max-w-6xl">
