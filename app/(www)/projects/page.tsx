@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { ProjectList } from "@/components/project";
+import { ProjectList } from "@/components/projectPage";
 import { PROJECTS_QUERY } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";
 

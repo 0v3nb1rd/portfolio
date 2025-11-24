@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { NewsList } from "@/components/news/news-list";
+import { NewsList } from "@/components/newsPage/news-list";
 import { getNews } from "@/lib/news";
 
 export const metadata: Metadata = {
