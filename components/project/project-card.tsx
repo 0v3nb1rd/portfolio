@@ -89,7 +89,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <a
         href={project.url}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         className="bg-card text-foreground hover:bg-accent relative col-span-2 flex h-auto flex-col overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:max-h-24"
       >
         <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">
@@ -100,7 +100,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <a
         href={project.github}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         className="bg-card group text-foreground hover:bg-accent relative col-span-2 flex h-auto overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:max-h-24"
       >
         <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">

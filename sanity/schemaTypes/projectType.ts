@@ -11,6 +11,7 @@ const STACK_OPTIONS: { title: string; value: string }[] = [
   { title: "Bootstrap", value: "bootstrap" },
   { title: "jQuery", value: "jquery" },
   { title: "Tailwind", value: "tailwind" },
+  { title: "Shadcn/UI", value: "shadcn" },
   { title: "React", value: "react" },
   { title: "JavaScript", value: "javascript" },
   { title: "TypeScript", value: "typescript" },
@@ -22,6 +23,9 @@ const STACK_OPTIONS: { title: string; value: string }[] = [
   { title: "Gulp", value: "gulp" },
   { title: "PHP", value: "php" },
   { title: "Laravel", value: "laravel" },
+  { title: "Blade", value: "blade" },
+  { title: "Livewire", value: "livewire" },
+  { title: "Alpine.js", value: "alpinejs" },
   { title: "Figma", value: "figma" },
   { title: "Stripe", value: "stripe" },
   { title: "API", value: "api" },
@@ -65,7 +69,7 @@ export const projectType = defineType({
     }),
     defineField({
       name: "favicon",
-      title: "Logo",
+      title: "Icon",
       type: "image",
       options: {
         hotspot: true,
