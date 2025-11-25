@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
 import { ViewTransition } from "react";
 
@@ -12,7 +15,12 @@ export function HomeGrid() {
   return (
     <ViewTransition name="page">
       <ul className="grid grid-cols-4 gap-5 lg:grid-cols-3">
-        <li className="bg-card height-auto relative col-span-full overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-2">
+        <motion.li
+          className="bg-card height-auto relative col-span-full overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], scale: [0.9, 1] }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <div className="text-foreground relative flex h-full flex-col items-center justify-center">
             <Avatar className="mb-2 size-24 text-2xl" role="img" aria-label={`Photo of ${siteConfig.name}`}>
               <AvatarImage
@@ -25,16 +33,26 @@ export function HomeGrid() {
             <h1 className="h1">{siteConfig.name}</h1>
             <p className="text-muted-foreground text-center text-lg">Find more in my repositories</p>
           </div>
-        </li>
+        </motion.li>
 
-        <li className="height-auto relative col-span-full flex flex-col overflow-hidden rounded-md border shadow lg:col-span-2 lg:row-span-1 lg:row-start-1">
+        <motion.li
+          className="height-auto relative col-span-full flex flex-col overflow-hidden rounded-md border shadow lg:col-span-2 lg:row-span-1 lg:row-start-1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateX(-100px)", "none"] }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <div className="bg-card text-foreground relative flex h-full flex-col justify-center gap-2 p-4">
             <h1 className="h1">Who am I?</h1>
             <i className="text-muted-foreground p-2 text-lg">{siteConfig.aboutText}</i>
           </div>
-        </li>
+        </motion.li>
 
-        <li className="height-auto bg-accent relative col-span-full row-start-2 row-end-3 flex flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-1 lg:row-start-2">
+        <motion.li
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(100px)", "none"] }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="height-auto bg-accent relative col-span-full row-start-2 row-end-3 flex flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-1 lg:row-start-2"
+        >
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
             <h1 className="h1 text-center text-balance">
               <span className="font-medium tracking-tight">👨‍💻 Frontend Developer</span>
@@ -44,9 +62,14 @@ export function HomeGrid() {
           <div className="text-primary absolute inset-0 size-full opacity-40">
             <BgTTenSVG className="h-auto w-full" />
           </div>
-        </li>
+        </motion.li>
 
-        <li className="height-auto bg-accent relative col-span-2 hidden flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-3 lg:flex">
+        <motion.li
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(100px)", "none"] }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="height-auto bg-accent relative col-span-2 hidden flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-3 lg:flex"
+        >
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
             <h2 className="h1 text-center text-balance">
               <span className="font-medium tracking-tight">🚀 Make it happen.</span>
@@ -56,18 +79,28 @@ export function HomeGrid() {
           <div className="text-primary absolute inset-0 size-full opacity-40">
             <BgTTenSVG className="h-auto w-full" />
           </div>
-        </li>
+        </motion.li>
 
-        <li className="height-auto relative col-span-full flex flex-col lg:col-span-1 lg:col-start-1 lg:row-span-2 lg:row-start-3">
+        <motion.li
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(100px)", "none"] }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="height-auto relative col-span-full flex flex-col lg:col-span-1 lg:col-start-1 lg:row-span-2 lg:row-start-3"
+        >
           <div className="bg-card text-foreground relative col-span-full flex h-full items-center justify-center overflow-hidden rounded-md border p-4 shadow">
             <div className="flex h-full flex-col gap-2">
               <h1 className="h1 tracking-tight">Tech stack I work with:</h1>
               <SkillList />
             </div>
           </div>
-        </li>
+        </motion.li>
 
-        <li className="relative hidden lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:block lg:h-[350px]">
+        <motion.li
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(-100px)", "none"] }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="relative hidden lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:block lg:h-[350px]"
+        >
           <div className="bg-card text-foreground relative h-full w-full overflow-hidden rounded-md border shadow">
             <Image
               fill
@@ -78,9 +111,14 @@ export function HomeGrid() {
               alt="relaxing image"
             />
           </div>
-        </li>
+        </motion.li>
 
-        <li className="height-auto bg-card relative col-span-full flex flex-col overflow-hidden rounded-md border shadow lg:col-span-2 lg:col-start-2 lg:row-span-1 lg:row-start-4">
+        <motion.li
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateX(100px)", "none"] }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="height-auto bg-card relative col-span-full flex flex-col overflow-hidden rounded-md border shadow lg:col-span-2 lg:col-start-2 lg:row-span-1 lg:row-start-4"
+        >
           <div className="text-foreground flex h-full items-center justify-center p-4">
             <div className="flex flex-1 flex-col gap-2">
               <h1 className="h1">Experience</h1>
@@ -91,7 +129,7 @@ export function HomeGrid() {
           <div className="text-accent absolute inset-y-0 -right-90 size-full rotate-45">
             <BgTTenSVG className="h-auto w-full" />
           </div>
-        </li>
+        </motion.li>
       </ul>
     </ViewTransition>
   );
