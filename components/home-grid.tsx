@@ -18,7 +18,7 @@ export function HomeGrid() {
         <motion.li
           className="bg-card height-auto relative col-span-full overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-2"
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.2, 0.8, 1], scale: [0.9, 1] }}
+          animate={{ opacity: [0, 0.4, 0.8, 1], scale: [0.8, 1] }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <div className="text-foreground relative flex h-full flex-col items-center justify-center">
@@ -39,7 +39,7 @@ export function HomeGrid() {
           className="height-auto relative col-span-full flex flex-col overflow-hidden rounded-md border shadow lg:col-span-2 lg:row-span-1 lg:row-start-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateX(-100px)", "none"] }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
         >
           <div className="bg-card text-foreground relative flex h-full flex-col justify-center gap-2 p-4">
             <h1 className="h1">Who am I?</h1>
@@ -49,8 +49,8 @@ export function HomeGrid() {
 
         <motion.li
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(100px)", "none"] }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateX(-100px)", "none"] }}
+          transition={{ duration: 0.3, delay: 0.4 }}
           className="height-auto bg-accent relative col-span-full row-start-2 row-end-3 flex flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-1 lg:row-start-2"
         >
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
@@ -66,8 +66,8 @@ export function HomeGrid() {
 
         <motion.li
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(100px)", "none"] }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateX(100px)", "none"] }}
+          transition={{ duration: 0.3, delay: 0.4 }}
           className="height-auto bg-accent relative col-span-2 hidden flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-3 lg:flex"
         >
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
@@ -84,7 +84,7 @@ export function HomeGrid() {
         <motion.li
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(100px)", "none"] }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
           className="height-auto relative col-span-full flex flex-col lg:col-span-1 lg:col-start-1 lg:row-span-2 lg:row-start-3"
         >
           <div className="bg-card text-foreground relative col-span-full flex h-full items-center justify-center overflow-hidden rounded-md border p-4 shadow">
@@ -98,7 +98,7 @@ export function HomeGrid() {
         <motion.li
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(-100px)", "none"] }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           className="relative hidden lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:block lg:h-[350px]"
         >
           <div className="bg-card text-foreground relative h-full w-full overflow-hidden rounded-md border shadow">
@@ -116,7 +116,7 @@ export function HomeGrid() {
         <motion.li
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateX(100px)", "none"] }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           className="height-auto bg-card relative col-span-full flex flex-col overflow-hidden rounded-md border shadow lg:col-span-2 lg:col-start-2 lg:row-span-1 lg:row-start-4"
         >
           <div className="text-foreground flex h-full items-center justify-center p-4">
