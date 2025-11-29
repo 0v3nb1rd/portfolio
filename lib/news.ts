@@ -15,7 +15,7 @@ type DevToData = {
   cover_image: string;
   social_image: string;
   description?: string;
-  tag_list: string;
+  tag_list: string[];
   tags?: string;
   reading_time_minutes?: number;
 };
@@ -29,7 +29,7 @@ type HackerNewsData = {
   score: number;
 };
 
-const REVALIDATE_SECONDS = 600;
+const REVALIDATE_SECONDS = 3600;
 const HACKER_NEWS_API_URL = "https://hacker-news.firebaseio.com/v0/";
 const DEV_TO_API_URL = "https://dev.to/api/";
 
@@ -52,7 +52,7 @@ async function fetchDevTo(limit: number, tag?: string): Promise<NewsType[]> {
     source: "devto" as const,
     author: p.user?.name || p.user?.username,
     publishedAt: p.published_at,
-    tags: p.tag_list.split(",") || [],
+    tags: p?.tag_list || p?.tags?.split(",") || [],
     image: p.cover_image || p.social_image || undefined,
     description: p.description || undefined,
   }));
@@ -75,6 +75,7 @@ async function fetchHN(limit: number): Promise<NewsType[]> {
   const top = ids.slice(0, Math.min(limit, 50));
   const items = await Promise.all(top.map((id) => getJSON(`${HACKER_NEWS_API_URL}item/${id}.json`)));
 
+  // console.log("Hacker News data: ", items);
   const base: NewsType[] = items.filter(Boolean).map((i: HackerNewsData) => {
     return {
       id: `hn_${i.id}`,
@@ -106,7 +107,7 @@ async function fetchHN(limit: number): Promise<NewsType[]> {
 }
 
 export async function getNews({
-  limit = 20,
+  limit = 12,
   tag,
   source,
 }: {
@@ -116,8 +117,10 @@ export async function getNews({
 }) {
   const src = source ?? "all";
   const tasks: Promise<NewsType[]>[] = [];
-  if (src === "all" || src === "devto") tasks.push(fetchDevTo(limit, tag));
-  if (src === "all" || src === "hackernews") tasks.push(fetchHN(limit));
+  const limitPerSource = src === "all" ? Math.ceil(limit / 2) : limit;
+
+  if (src === "all" || src === "devto") tasks.push(fetchDevTo(limitPerSource, tag));
+  if (src === "all" || src === "hackernews") tasks.push(fetchHN(limitPerSource));
 
   const settled = await Promise.allSettled(tasks);
   const items = settled.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
