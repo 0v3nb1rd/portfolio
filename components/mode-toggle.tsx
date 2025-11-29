@@ -1,50 +1,106 @@
 "use client";
 
-import clsx from "clsx";
 import { Moon, Sun } from "lucide-react";
+import { motion } from "motion/react";
 import { useTheme } from "next-themes";
 import * as React from "react";
 
+import { buttonVariants } from "@/components/ui/button";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
 export function ModeToggle() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleToggle = () => {
+    if (theme === "system" || !theme) {
+      setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    } else if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  if (!mounted) {
+    return (
+      <Button variant="outline" size="icon-lg" className="cursor-pointer" aria-label="Toggle theme">
+        <Sun className="h-[1.2rem] w-[1.2rem]" />
+        <span className="sr-only">Toggle theme</span>
+      </Button>
+    );
+  }
+
+  const isDark = resolvedTheme === "dark";
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon-lg" className="cursor-pointer">
-          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem
-          onClick={() => setTheme("light")}
-          className={clsx(theme === "light" ? "bg-secondary font-bold" : "", "cursor-pointer")}
+    <motion.button
+      className={cn(buttonVariants({ variant: "ghost", size: "icon-lg" }), "relative cursor-pointer overflow-hidden")}
+      onClick={handleToggle}
+      aria-label="Toggle theme"
+      type="button"
+      whileTap={{
+        scale: 0.9,
+      }}
+      transition={{
+        duration: 0.2,
+        ease: [0.4, 0, 0.2, 1],
+      }}
+    >
+      <motion.div
+        className="relative size-6"
+        key={isDark ? "dark" : "light"}
+        initial={{
+          scale: 0.8,
+          rotate: isDark ? -180 : 180,
+        }}
+        animate={{
+          scale: 1,
+          rotate: 0,
+        }}
+        transition={{
+          duration: 0.4,
+          ease: [0.4, 0, 0.2, 1],
+        }}
+      >
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center"
+          initial={false}
+          animate={{
+            opacity: isDark ? 0 : 1,
+            scale: isDark ? 0.5 : 1,
+            rotate: isDark ? 90 : 0,
+          }}
+          transition={{
+            duration: 0.3,
+            ease: [0.4, 0, 0.2, 1],
+          }}
         >
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => setTheme("dark")}
-          className={clsx(theme === "dark" ? "bg-secondary font-bold" : "", "cursor-pointer")}
+          <Sun className="size-6" />
+        </motion.div>
+
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center"
+          initial={false}
+          animate={{
+            opacity: isDark ? 1 : 0,
+            scale: isDark ? 1 : 0.5,
+            rotate: isDark ? 0 : -90,
+          }}
+          transition={{
+            duration: 0.3,
+            ease: [0.4, 0, 0.2, 1],
+          }}
         >
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => setTheme("system")}
-          className={clsx(theme === "system" ? "bg-secondary font-bold" : "", "cursor-pointer")}
-        >
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+          <Moon className="size-6" />
+        </motion.div>
+      </motion.div>
+      <span className="sr-only">Toggle theme</span>
+    </motion.button>
   );
 }

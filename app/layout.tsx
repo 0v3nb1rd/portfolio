@@ -43,7 +43,7 @@ export default function RootLayout({
         <Providers
           themeProps={{
             attribute: "class",
-            defaultTheme: "system",
+            defaultTheme: siteConfig.defaultTheme,
             enableSystem: true,
             disableTransitionOnChange: true,
           }}

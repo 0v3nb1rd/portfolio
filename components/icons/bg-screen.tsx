@@ -83,7 +83,7 @@ export const BgScreenSVG = ({ className, style }: BgScreenProps) => {
           }}
           role="presentation"
           aria-hidden="true"
-          className="absolute -translate-1/2 rounded-full blur-[160px] will-change-transform"
+          className="absolute -translate-1/2 rounded-full blur-[120px] will-change-transform"
           style={{
             left: circle.left,
             top: circle.top,

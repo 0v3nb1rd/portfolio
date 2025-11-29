@@ -27,9 +27,9 @@ export default function Header() {
             <ModeToggle />
 
             <Button
-              variant="outline"
+              variant="ghost"
               size="lg"
-              className="GlowOnHover relative cursor-pointer text-lg hover:scale-102"
+              className="GlowOnHover group relative cursor-pointer font-mono text-lg hover:scale-102"
               asChild
             >
               <a
@@ -38,8 +38,9 @@ export default function Header() {
                 href="./cv-nazar-kahylo.pdf"
                 aria-label={`Contact ${siteConfig.name}`}
               >
-                <span className="font-bold">
-                  Show <i>CV</i>
+                <span className="decoration-primary group-hover:decoration-2px flex items-center gap-2 font-bold underline decoration-dashed decoration-4 underline-offset-8 transition-all group-hover:decoration-transparent group-hover:underline-offset-2">
+                  <span className="hidden md:inline">Show </span>
+                  <i> CV</i>
                 </span>
               </a>
             </Button>

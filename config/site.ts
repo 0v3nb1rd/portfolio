@@ -39,11 +39,11 @@ export const siteConfig = {
       href: "/about",
       target: "_self",
     },
-    {
-      label: "Studio",
-      href: "/studio",
-      target: "_blank",
-    },
+    // {
+    //   label: "Studio",
+    //   href: "/studio",
+    //   target: "_blank",
+    // },
   ],
   links: {
     linkedin: "https://www.linkedin.com/in/0v3nb1rd/",
@@ -53,4 +53,7 @@ export const siteConfig = {
     email: "0v3nb1rd@gmail.com",
     sponsor: "https://www.buymeacoffee.com/0v3nb1rd",
   },
+
+  // Default theme: "system" | "light" | "dark"
+  defaultTheme: (process.env.NEXT_PUBLIC_DEFAULT_THEME as "light" | "dark" | "system") || "system",
 };
