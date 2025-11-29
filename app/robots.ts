@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
     };
   }
 
-  // for production domain (ovbi.dev) - allow indexing
+  // for production domain - allow indexing
   return {
     rules: {
       userAgent: "*",
