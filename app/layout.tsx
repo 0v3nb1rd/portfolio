@@ -8,6 +8,9 @@ import { SanityLive } from "@/sanity/lib/live";
 import "./globals.css";
 import { Providers } from "./providers";
 
+// check if preview deployment (not production)
+const isVercelPreview = process.env.VERCEL_ENV !== "production";
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -17,6 +20,20 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
+  // if preview deployment - block indexing
+  robots: isVercelPreview
+    ? {
+        index: false,
+        follow: false,
+      }
+    : {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+        },
+      },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
