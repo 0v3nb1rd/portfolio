@@ -3,11 +3,20 @@ import { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 
 export default function robots(): MetadataRoute.Robots {
-  // check if preview deployment (not production)
-  const isVercelPreview = process.env.VERCEL_ENV !== "production";
+  // Check if it's a Vercel auto-generated domain (*.vercel.app)
+  const isVercelAutoDomain = process.env.VERCEL_URL?.includes("vercel.app");
 
-  // if preview deployment - block indexing
-  if (isVercelPreview) {
+  // Block indexing for:
+  // 1. Vercel auto-generated domains (*.vercel.app) - even if production
+  // 2. Preview deployments
+  // 3. Local development
+  const shouldBlockIndexing =
+    isVercelAutoDomain ||
+    process.env.VERCEL_ENV === "preview" ||
+    process.env.VERCEL_ENV === "development" ||
+    !process.env.VERCEL_ENV;
+
+  if (shouldBlockIndexing) {
     return {
       rules: {
         userAgent: "*",
@@ -16,7 +25,7 @@ export default function robots(): MetadataRoute.Robots {
     };
   }
 
-  // for production domain - allow indexing
+  // Only allow indexing for production on custom domain
   return {
     rules: {
       userAgent: "*",

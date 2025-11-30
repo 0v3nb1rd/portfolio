@@ -8,8 +8,12 @@ import { SanityLive } from "@/sanity/lib/live";
 import "./globals.css";
 import { Providers } from "./providers";
 
-// check if preview deployment (not production)
+// Block indexing for:
+// 1. Vercel auto-generated domains (*.vercel.app) - even if production
+// 2. Preview/development deployments
+const isVercelAutoDomain = process.env.VERCEL_URL?.includes("vercel.app");
 const isVercelPreview = process.env.VERCEL_ENV !== "production";
+const shouldBlockIndexing = isVercelAutoDomain || isVercelPreview;
 
 export const metadata: Metadata = {
   title: {
@@ -21,7 +25,7 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   // if preview deployment - block indexing
-  robots: isVercelPreview
+  robots: shouldBlockIndexing
     ? {
         index: false,
         follow: false,
