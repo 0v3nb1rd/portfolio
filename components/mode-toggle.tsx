@@ -29,8 +29,8 @@ export function ModeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="outline" size="icon-lg" className="cursor-pointer" aria-label="Toggle theme">
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
+      <Button variant="ghost" size="icon-lg" className="cursor-pointer" aria-label="Toggle theme">
+        <Moon className="size-6" />
         <span className="sr-only">Toggle theme</span>
       </Button>
     );
