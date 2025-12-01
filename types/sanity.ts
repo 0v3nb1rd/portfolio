@@ -22,9 +22,9 @@ export type Project = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  slug?: Slug;
-  description?: string;
+  title: string;
+  slug: Slug;
+  description: string;
   favicon?: {
     asset?: {
       _ref: string;
@@ -37,7 +37,7 @@ export type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  logo?: {
+  logo: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -49,7 +49,7 @@ export type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  image?: {
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -73,31 +73,31 @@ export type Project = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  stack?: Array<string>;
-  url?: string;
+  stack: Array<string>;
+  url: string;
   github?: string;
-  date?: string;
+  date: string;
 };
 
 export type SanityImageCrop = {
   _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
 };
 
 export type SanityImageHotspot = {
   _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
+  x: number;
+  y: number;
+  height: number;
+  width: number;
 };
 
 export type Slug = {
   _type: "slug";
-  current?: string;
+  current: string;
   source?: string;
 };
 
@@ -122,9 +122,9 @@ export type SanityImagePalette = {
 
 export type SanityImageDimensions = {
   _type: "sanity.imageDimensions";
-  height?: number;
-  width?: number;
-  aspectRatio?: number;
+  height: number;
+  width: number;
+  aspectRatio: number;
 };
 
 export type SanityImageMetadata = {
@@ -220,9 +220,9 @@ export type PROJECTS_QUERYResult = Array<{
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  title?: string;
-  slug?: Slug;
-  description?: string;
+  title: string;
+  slug: Slug;
+  description: string;
   favicon?: {
     asset?: {
       _ref: string;
@@ -235,7 +235,7 @@ export type PROJECTS_QUERYResult = Array<{
     crop?: SanityImageCrop;
     _type: "image";
   };
-  logo?: {
+  logo: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -247,7 +247,7 @@ export type PROJECTS_QUERYResult = Array<{
     crop?: SanityImageCrop;
     _type: "image";
   };
-  image?: {
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -271,10 +271,10 @@ export type PROJECTS_QUERYResult = Array<{
     crop?: SanityImageCrop;
     _type: "image";
   };
-  stack?: Array<string>;
-  url?: string;
+  stack: Array<string>;
+  url: string;
   github?: string;
-  date?: string;
+  date: string;
 }>;
 
 declare module "@sanity/client" {
