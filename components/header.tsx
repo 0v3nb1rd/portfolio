@@ -38,7 +38,7 @@ export default function Header() {
                 href="./cv-nazar-kahylo.pdf"
                 aria-label={`Contact ${siteConfig.name}`}
               >
-                <span className="decoration-primary group-hover:decoration-2px flex items-center gap-2 font-bold underline decoration-dashed decoration-4 underline-offset-8 transition-all group-hover:decoration-transparent group-hover:underline-offset-2">
+                <span className="before:bg-primary before:cubic-bezier(0.68, -0.55, 0.265, 1) relative z-10 flex items-center gap-2 font-bold transition-all before:absolute before:bottom-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:rounded-md before:blur-xl before:transition-all before:delay-100 before:duration-300 before:content-[''] group-hover:before:blur-3xl">
                   <span className="hidden md:inline">Show </span>
                   <i> CV</i>
                 </span>
