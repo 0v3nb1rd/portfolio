@@ -1,17 +1,17 @@
 import {
-  AiSVG,
   AlpineSVG,
   DockerSVG,
   ExpressSVG,
-  FastifySVG,
   FigmaSVG,
   FramerSVG,
+  GraphQLSVG,
   JavascriptSVG,
   LaravelSVG,
   NextSVG,
+  PrismaSVG,
   ReactSVG,
   ReduxSVG,
-  ShadcnSVG,
+  SanitySVG,
   TailwindSVG,
   TypescriptSVG,
   VueSVG,
@@ -40,16 +40,16 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
     icon: <NextSVG width={44} />,
   },
   {
+    name: "GraphQL",
+    icon: <GraphQLSVG width={44} />,
+  },
+  {
     name: "Vue",
     icon: <VueSVG width={44} />,
   },
   {
     name: "Tailwind",
     icon: <TailwindSVG width={44} />,
-  },
-  {
-    name: "ShadCn",
-    icon: <ShadcnSVG width={44} />,
   },
   {
     name: "Alpine.js",
@@ -64,24 +64,24 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
     icon: <FramerSVG width={44} />,
   },
   {
-    name: "Docker",
-    icon: <DockerSVG width={44} />,
-  },
-  {
     name: "Express",
     icon: <ExpressSVG width={44} />,
   },
   {
-    name: "Fastify",
-    icon: <FastifySVG width={44} />,
+    name: "Prisma",
+    icon: <PrismaSVG width={44} />,
+  },
+  {
+    name: "Sanity",
+    icon: <SanitySVG width={44} />,
+  },
+  {
+    name: "Docker",
+    icon: <DockerSVG width={44} />,
   },
   {
     name: "Laravel",
     icon: <LaravelSVG width={44} />,
-  },
-  {
-    name: "AI",
-    icon: <AiSVG width={44} />,
   },
 ];
 

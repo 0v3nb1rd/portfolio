@@ -28,7 +28,7 @@ export default function Header() {
             <ModeToggle />
 
             <CVButton>
-              <span className="hidden font-mono md:inline">Resume </span>
+              <span className="hidden tracking-wider md:inline">Resume </span>
               <DownloadIcon className="size-6" />
             </CVButton>
           </div>
