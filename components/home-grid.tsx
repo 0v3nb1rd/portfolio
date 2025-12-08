@@ -31,7 +31,17 @@ export function HomeGrid() {
             </Avatar>
 
             <h1 className="h1">{siteConfig.name}</h1>
-            <p className="text-muted-foreground text-center text-lg">Find more in my repositories</p>
+            <p className="text-muted-foreground text-center text-lg">
+              Find more in my{" "}
+              <a
+                href="https://github.com/0v3nb1rd/"
+                className="hover:text-primary underline underline-offset-2 opacity-80 transition-colors hover:opacity-100"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                repositories
+              </a>
+            </p>
           </div>
         </motion.li>
 
