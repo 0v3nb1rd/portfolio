@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 export default async function News() {
-  const news = await getNews({ limit: 12, source: "devto" });
+  const news = await getNews({ limit: 15, source: "devto" });
 
   return (
     <main id="news" className="container mx-auto max-w-6xl">

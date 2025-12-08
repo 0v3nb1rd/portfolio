@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
 
-import { fontMono, fontSans } from "@/config/fonts";
+import { inter, manrope } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { SanityLive } from "@/sanity/lib/live";
 
@@ -59,8 +59,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={clsx(fontSans.variable, fontMono.variable, "relative antialiased")}>
+    <html lang="en" suppressHydrationWarning className={clsx(inter.variable, manrope.variable)}>
+      <body className="relative antialiased">
         <Providers
           themeProps={{
             attribute: "class",

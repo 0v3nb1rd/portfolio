@@ -29,12 +29,12 @@ export function NewsCard({ news, ...props }: { news: NewsType } & React.Componen
             />
           )}
         </div>
-        <h3 className="mb-2 leading-tight font-semibold tracking-tight">{news.title}</h3>
-        <div className="mt-auto text-sm opacity-80">
+        <h2 className="h4 font-balance mb-2">{news.title}</h2>
+        <p className="mt-auto text-sm tracking-tight opacity-80">
           {news.author && <>👤 {news.author} • </>}
           {news.publishedAt && (
             <time dateTime={news.publishedAt}>
-              {new Date(news.publishedAt).toLocaleDateString("en-US", {
+              {new Date(news.publishedAt).toLocaleDateString("en-GB", {
                 year: "numeric",
                 month: "2-digit",
                 day: "2-digit",
@@ -42,7 +42,7 @@ export function NewsCard({ news, ...props }: { news: NewsType } & React.Componen
             </time>
           )}
           {news.score ? <> • ⬆ {news.score}</> : null}
-        </div>
+        </p>
       </a>
     </li>
   );

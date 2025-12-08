@@ -5,13 +5,17 @@ import {
   FigmaSVG,
   FramerSVG,
   GraphQLSVG,
+  GsapSVG,
   JavascriptSVG,
   LaravelSVG,
+  NestSVG,
   NextSVG,
+  OpenAISVG,
   PrismaSVG,
   ReactSVG,
   ReduxSVG,
   SanitySVG,
+  StripeSVG,
   TailwindSVG,
   TypescriptSVG,
   VueSVG,
@@ -21,73 +25,90 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 export const techIconList: { name: string; icon: React.ReactNode }[] = [
   {
     name: "JavaScript",
-    icon: <JavascriptSVG width={44} />,
+    icon: <JavascriptSVG width={42} />,
   },
   {
     name: "TypeScript",
-    icon: <TypescriptSVG width={44} />,
+    icon: <TypescriptSVG width={42} />,
   },
   {
     name: "React",
-    icon: <ReactSVG width={44} />,
+    icon: <ReactSVG width={42} />,
   },
   {
     name: "Redux",
-    icon: <ReduxSVG width={44} />,
+    icon: <ReduxSVG width={42} />,
   },
   {
     name: "Next.js",
-    icon: <NextSVG width={44} />,
+    icon: <NextSVG width={42} />,
   },
   {
     name: "GraphQL",
-    icon: <GraphQLSVG width={44} />,
+    icon: <GraphQLSVG width={42} />,
   },
   {
     name: "Vue",
-    icon: <VueSVG width={44} />,
+    icon: <VueSVG width={42} />,
   },
   {
     name: "Tailwind",
-    icon: <TailwindSVG width={44} />,
+    icon: <TailwindSVG width={42} />,
   },
   {
     name: "Alpine.js",
-    icon: <AlpineSVG width={44} />,
+    icon: <AlpineSVG width={42} />,
   },
   {
     name: "Figma",
-    icon: <FigmaSVG width={44} />,
+    icon: <FigmaSVG width={42} />,
+  },
+  {
+    name: "GSAP",
+    icon: <GsapSVG width={42} />,
   },
   {
     name: "Framer Motion",
-    icon: <FramerSVG width={44} />,
+    icon: <FramerSVG width={42} />,
   },
   {
-    name: "Express",
-    icon: <ExpressSVG width={44} />,
+    name: "Stripe",
+    icon: <StripeSVG width={42} />,
   },
+  {
+    name: "OpenAI",
+    icon: <OpenAISVG width={42} />,
+  },
+
   {
     name: "Prisma",
-    icon: <PrismaSVG width={44} />,
+    icon: <PrismaSVG width={42} />,
   },
   {
     name: "Sanity",
-    icon: <SanitySVG width={44} />,
+    icon: <SanitySVG width={42} />,
+  },
+  {
+    name: "Express",
+    icon: <ExpressSVG width={42} />,
+  },
+  {
+    name: "NestJS",
+    icon: <NestSVG width={42} />,
   },
   {
     name: "Docker",
-    icon: <DockerSVG width={44} />,
+    icon: <DockerSVG width={42} />,
   },
   {
     name: "Laravel",
-    icon: <LaravelSVG width={44} />,
+    icon: <LaravelSVG width={42} />,
   },
 ];
 
 export function SkillList() {
   return (
-    <ul className="flex flex-wrap items-center justify-center gap-6 p-4 px-8 lg:justify-around">
+    <ul className="flex flex-wrap items-center justify-center gap-2 p-6 lg:justify-around">
       {techIconList.map(({ name, icon }: { name: string; icon: React.ReactNode }) => (
         <li key={`technology-item-${name}`}>
           <Tooltip>

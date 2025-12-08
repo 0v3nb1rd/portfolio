@@ -21,7 +21,7 @@ export function HomeGrid() {
           animate={{ opacity: [0, 0.4, 0.8, 1], scale: [0.8, 1] }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="text-foreground relative flex h-full flex-col items-center justify-center">
+          <div className="text-foreground relative flex h-full flex-col items-center justify-center p-4">
             <Avatar className="mb-2 size-24 text-2xl" role="img" aria-label={`Photo of ${siteConfig.name}`}>
               <AvatarImage
                 alt={`Photo of ${siteConfig.name}`}
@@ -31,11 +31,11 @@ export function HomeGrid() {
             </Avatar>
 
             <h1 className="h1">{siteConfig.name}</h1>
-            <p className="text-muted-foreground text-center text-lg">
+            <p className="text-muted-foreground text-center text-lg tracking-tight opacity-80">
               Find more in my{" "}
               <a
                 href="https://github.com/0v3nb1rd/"
-                className="hover:text-primary underline underline-offset-2 opacity-80 transition-colors hover:opacity-100"
+                className="hover:text-primary text-inherit underline underline-offset-2 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -52,8 +52,8 @@ export function HomeGrid() {
           transition={{ duration: 0.3, delay: 0.2 }}
         >
           <div className="bg-card text-foreground relative flex h-full flex-col justify-center gap-2 p-4">
-            <h1 className="h1">Who am I?</h1>
-            <i className="text-muted-foreground p-2 text-lg">{siteConfig.aboutText}</i>
+            <h2 className="h2">Who am I?</h2>
+            <i className="text-muted-foreground p-2 text-lg tracking-tight">{siteConfig.aboutText}</i>
           </div>
         </motion.li>
 
@@ -64,9 +64,10 @@ export function HomeGrid() {
           className="height-auto bg-accent relative col-span-full row-start-2 row-end-3 flex flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-1 lg:row-start-2"
         >
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
-            <h1 className="h1 text-center text-balance">
-              <span className="font-medium tracking-tight">👨‍💻 Frontend Developer</span>
-            </h1>
+            <h2 className="h2 text-center text-balance">
+              <span>👨‍💻 Frontend </span>
+              <i className="text-muted-foreground">Developer</i>
+            </h2>
           </div>
 
           <div className="text-primary absolute inset-0 size-full opacity-40">
@@ -81,8 +82,9 @@ export function HomeGrid() {
           className="height-auto bg-accent relative col-span-2 hidden flex-col overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-3 lg:row-span-1 lg:row-start-3 lg:flex"
         >
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
-            <h2 className="h1 text-center text-balance">
-              <span className="font-medium tracking-tight">🚀 Make it happen.</span>
+            <h2 className="h2 text-center text-balance">
+              <span className="">🚀 Make it </span>
+              <i className="text-muted-foreground">happen.</i>
             </h2>
           </div>
 
@@ -99,7 +101,7 @@ export function HomeGrid() {
         >
           <div className="bg-card text-foreground relative col-span-full flex h-full items-center justify-center overflow-hidden rounded-md border p-4 shadow">
             <div className="flex h-full flex-col gap-2">
-              <h1 className="h1 tracking-tight">Tech stack I work with:</h1>
+              <h2 className="h2">Tech stack I work with:</h2>
               <SkillList />
             </div>
           </div>
@@ -109,9 +111,9 @@ export function HomeGrid() {
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.2, 0.8, 1], transform: ["translateY(-100px)", "none"] }}
           transition={{ duration: 0.3, delay: 0.3 }}
-          className="relative hidden lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:block lg:h-[350px]"
+          className="relative hidden lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:block"
         >
-          <div className="bg-card text-foreground relative h-full w-full overflow-hidden rounded-md border shadow">
+          <div className="bg-card text-foreground relative h-full w-full overflow-hidden rounded-md border p-4 shadow">
             <Image
               fill
               priority
@@ -131,7 +133,7 @@ export function HomeGrid() {
         >
           <div className="text-foreground flex h-full items-center justify-center p-4">
             <div className="flex flex-1 flex-col gap-2">
-              <h1 className="h1">Experience</h1>
+              <h2 className="h2">Experience</h2>
               <ExperienceList className="p-2" />
             </div>
           </div>

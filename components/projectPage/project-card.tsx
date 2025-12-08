@@ -71,15 +71,15 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="bg-accent text-primary mr-2 flex size-10 items-center justify-center rounded-md p-2 text-lg font-bold">
             {project?.favicon ? (
               <Image
-                className="rounded"
-                src={urlFor(project.favicon).height(60).width(60).quality(90).auto("format").url()}
+                src={urlFor(project.favicon).width(24).height(24).quality(92).auto("format").url()}
                 alt={project.title || "Project logo"}
                 width={24}
                 height={24}
                 loading="lazy"
+                style={{ height: "24px", width: "auto" }}
+                className="object-contain"
               />
             ) : (
-              // <span>{project.title?.slice(0, 1)}</span>
               <SiteSVG className="w-6" />
             )}
           </span>
@@ -87,12 +87,14 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="mb-2">
-          <p className="text-muted-foreground text-lg">{project.description}</p>
+          <p className="text-muted-foreground text-lg tracking-tight opacity-80 transition-opacity group-hover:opacity-100">
+            {project.description}
+          </p>
         </div>
 
         <div className="mt-auto flex w-full flex-wrap gap-2">
           {project.stack?.map((tech) => (
-            <Badge key={tech} className="bg-accent text-foreground uppercase">
+            <Badge key={tech} className="bg-accent text-foreground tracking-wide uppercase">
               {tech}
             </Badge>
           ))}
@@ -106,7 +108,7 @@ export function ProjectCard({ project }: { project: Project }) {
         className="bg-card text-foreground hover:bg-accent relative col-span-2 flex h-auto flex-col overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:max-h-24"
       >
         <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">
-          <LinkSVG />
+          <LinkSVG className="h-12 w-12" />
         </div>
       </a>
 
@@ -117,7 +119,7 @@ export function ProjectCard({ project }: { project: Project }) {
         className="bg-card group text-foreground hover:bg-accent relative col-span-2 flex h-auto overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:max-h-24"
       >
         <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">
-          <GithubSVG />
+          <GithubSVG className="h-12 w-12 p-0.5" />
         </div>
       </a>
     </motion.li>

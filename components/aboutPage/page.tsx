@@ -47,9 +47,11 @@ export const AboutPage = () => {
             <div className="flex h-full flex-col items-center justify-center gap-1 p-4">
               <div className="flex flex-col items-center gap-2">
                 <GithubSVG className="mb-1" />
-                <span className="text-3xl font-bold">Github Profile</span>
+                <h2 className="h2 font-balance">Github Profile</h2>
               </div>
-              <p className="text-muted-foreground text-center text-xl">Find more of my repositories</p>
+              <p className="text-muted-foreground text-center text-lg tracking-tight opacity-80">
+                Find more of my repositories
+              </p>
             </div>
           </a>
         </li>
@@ -88,11 +90,12 @@ export const AboutPage = () => {
 
         <li id="contact" className="col-span-full h-full scroll-mt-24">
           <div className="bg-card flex h-full flex-col items-center justify-center gap-1 rounded-md border p-4 shadow">
-            <h1 className="text-center text-3xl font-bold">
-              Contact <span className="text-primary font-medium tracking-tight">with me</span>
+            <h1 className="h2 font-balance text-center">
+              <span>Contact </span>
+              <i className="text-muted-foreground">with me</i>
             </h1>
 
-            <p className="text-muted-foreground text-center text-xl">
+            <p className="text-muted-foreground text-center text-lg tracking-tight opacity-80">
               You can also get in touch with me through this form below.
             </p>
 
