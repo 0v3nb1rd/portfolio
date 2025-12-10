@@ -21,7 +21,12 @@ const containerVariants = {
 export function ProjectList({ projects }: { projects: Project[] }) {
   return (
     <ViewTransition name="page">
-      <motion.ul className="flex flex-col gap-18" variants={containerVariants} initial="hidden" animate="visible">
+      <motion.ul
+        className="flex flex-col gap-8 md:gap-18"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {projects.map((project) => (
           <ProjectCard key={project._id} project={project} />
         ))}

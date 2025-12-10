@@ -3,6 +3,7 @@
 import { motion, type Variants } from "motion/react";
 import Image from "next/image";
 
+import { useIsMobile } from "@/hooks/use-mobile";
 import { urlFor } from "@/sanity/lib/image";
 import { Project } from "@/types/sanity";
 
@@ -25,6 +26,8 @@ const cardVariants: Variants = {
 };
 
 export function ProjectCard({ project }: { project: Project }) {
+  const isMobile = useIsMobile({ breakpoint: 1024 });
+
   const imageBuilder = project?.image
     ? urlFor(project.image).width(1080).height(704).quality(92).fit("crop").auto("format")
     : null;
@@ -40,19 +43,19 @@ export function ProjectCard({ project }: { project: Project }) {
     : undefined;
 
   return (
-    <motion.li className="group grid grid-cols-4 gap-5" variants={cardVariants}>
-      <div className="relative z-0 rounded-md border shadow lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4">
+    <motion.li className="group grid grid-cols-4 grid-rows-1 gap-5" variants={cardVariants}>
+      <div className="relative z-0 col-span-full rounded-md border shadow lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4">
         <div className="-bg-card postImage2D relative flex size-full items-center justify-center gap-4">
           <Image
             src={imageUrl}
             alt={project.title || "Project image"}
-            fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 540px"
-            className="rounded-md object-cover object-[top_center] opacity-80 transition-opacity duration-200 group-hover:opacity-100"
+            className="rounded-md object-contain object-[top_center] opacity-80 transition-opacity duration-200 group-hover:opacity-100 lg:object-cover"
             loading="lazy"
             quality={92}
             placeholder={imageUrlBlur ? "blur" : "empty"}
             blurDataURL={imageUrlBlur}
+            {...(isMobile ? { width: 1080, height: 704 } : { fill: true })}
           />
           <Image
             src={imageUrlBlur || imageUrl}

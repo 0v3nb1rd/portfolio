@@ -14,7 +14,7 @@ export default async function News() {
 
   return (
     <main id="news" className="container mx-auto max-w-6xl">
-      <section className="py-12">
+      <section className="py-6 sm:py-12">
         <NewsList news={news} />
       </section>
     </main>

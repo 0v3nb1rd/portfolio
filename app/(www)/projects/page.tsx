@@ -13,7 +13,7 @@ export default async function Projects() {
 
   return (
     <main id="projects" className="container mx-auto max-w-6xl">
-      <section className="py-12">
+      <section className="py-6 sm:py-12">
         <ProjectList projects={projects} />
       </section>
     </main>

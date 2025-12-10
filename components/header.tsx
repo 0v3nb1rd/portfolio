@@ -15,20 +15,25 @@ export default function Header() {
   return (
     <header>
       <div className="container">
-        <nav className="flex items-center justify-between gap-4 py-4">
-          <Link href="/" className="relative inline-block" aria-label={`Homepage - ${siteConfig.name}`} tabIndex={0}>
+        <nav className="flex flex-wrap items-center justify-center gap-4 py-4 md:justify-between">
+          <Link
+            href="/"
+            className="relative inline-block min-w-28 flex-1 md:min-w-auto"
+            aria-label={`Homepage - ${siteConfig.name}`}
+            tabIndex={0}
+          >
             <MLogo>
               <Logo />
             </MLogo>
           </Link>
 
-          <NavMenu />
+          <NavMenu className="order-1 mx-auto w-full md:order-0 md:w-auto lg:absolute lg:inset-x-0" />
 
-          <div className="flex items-center gap-4">
+          <div className="ml-auto flex items-center gap-4 md:w-auto">
             <ModeToggle />
 
             <CVButton>
-              <span className="hidden tracking-wider md:inline">Resume </span>
+              <span className="hidden tracking-wider sm:inline">Resume </span>
               <DownloadIcon className="size-6" />
             </CVButton>
           </div>

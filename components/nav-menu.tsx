@@ -14,13 +14,13 @@ import {
 import { siteConfig } from "@/config/site";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-export function NavMenu() {
+export function NavMenu({ ...props }: React.ComponentProps<typeof NavigationMenu>) {
   const isMobile = useIsMobile();
   const pathname = usePathname();
 
   return (
-    <NavigationMenu viewport={isMobile}>
-      <NavigationMenuList className="flex-wrap">
+    <NavigationMenu viewport={isMobile} {...props}>
+      <NavigationMenuList className="sm:gap-2">
         {siteConfig.navItems.map((item) => (
           <NavigationMenuItem key={item.href}>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>

@@ -108,7 +108,7 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
 
 export function SkillList() {
   return (
-    <ul className="flex flex-wrap items-center justify-center gap-2 p-6 lg:justify-around">
+    <ul className="flex flex-wrap items-center justify-center gap-2 p-3 sm:p-6 lg:justify-around">
       {techIconList.map(({ name, icon }: { name: string; icon: React.ReactNode }) => (
         <li key={`technology-item-${name}`}>
           <Tooltip>
