@@ -15,7 +15,8 @@ import {
   ReactSVG,
   ReduxSVG,
   SanitySVG,
-  StripeSVG,
+  // StripeSVG,
+  SupabaseSVG,
   TailwindSVG,
   TypescriptSVG,
   VueSVG,
@@ -72,8 +73,8 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
     icon: <FramerSVG width={42} />,
   },
   {
-    name: "Stripe",
-    icon: <StripeSVG width={42} />,
+    name: "Supabase",
+    icon: <SupabaseSVG width={42} />,
   },
   {
     name: "OpenAI",
