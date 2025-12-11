@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
 import Image from "next/image";
 
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -9,21 +8,6 @@ import { Project } from "@/types/sanity";
 
 import { GithubSVG, LinkSVG, SiteSVG } from "../icons";
 import { Badge } from "../ui/badge";
-
-const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.4, 0, 0.2, 1],
-    },
-  },
-};
 
 export function ProjectCard({ project }: { project: Project }) {
   const isMobile = useIsMobile({ breakpoint: 1024 });
@@ -43,7 +27,7 @@ export function ProjectCard({ project }: { project: Project }) {
     : undefined;
 
   return (
-    <motion.li className="group grid grid-cols-4 grid-rows-1 gap-5" variants={cardVariants}>
+    <li className="group grid grid-cols-4 grid-rows-1 gap-5">
       <div className="relative z-0 col-span-full rounded-md border shadow lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4">
         <div className="-bg-card postImage2D relative flex size-full items-center justify-center gap-4">
           <Image
@@ -125,6 +109,6 @@ export function ProjectCard({ project }: { project: Project }) {
           <GithubSVG className="h-12 w-12 p-0.5" />
         </div>
       </a>
-    </motion.li>
+    </li>
   );
 }
