@@ -4,7 +4,11 @@ import { type NewsType } from "@/config/data";
 
 import { ImgPlaceholderSVG } from "../icons";
 
-export function NewsCard({ news, ...props }: { news: NewsType } & React.ComponentProps<"a">) {
+type Props = {
+  news: NewsType;
+} & React.ComponentProps<"a">;
+
+export function NewsCard({ news, ...props }: Props) {
   return (
     <li className="bg-card/60 hover:bg-card rounded-md border p-4 shadow backdrop-blur-md transition-all will-change-transform hover:-translate-y-1 hover:shadow-lg">
       <a href={news.url} target="_blank" rel="noreferrer" className="flex h-full flex-col" {...props}>

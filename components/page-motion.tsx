@@ -1,9 +1,14 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import { ViewTransition } from "react";
+import { Suspense, ViewTransition } from "react";
 
 import { useMounted } from "@/hooks/use-mounted";
+
+type Props = {
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
+};
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -17,7 +22,7 @@ const containerVariants: Variants = {
   },
 };
 
-export const ProjectMotion = ({ children }: React.PropsWithChildren) => {
+export const PageMotion = ({ children, fallback = <div>Loading...</div> }: Props) => {
   const mounted = useMounted();
 
   return (
@@ -29,7 +34,7 @@ export const ProjectMotion = ({ children }: React.PropsWithChildren) => {
         animate={mounted ? "visible" : false}
         suppressHydrationWarning
       >
-        {children}
+        <Suspense fallback={fallback}>{children}</Suspense>
       </motion.div>
     </ViewTransition>
   );
