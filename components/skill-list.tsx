@@ -4,18 +4,18 @@ import {
   ExpressSVG,
   FigmaSVG,
   FramerSVG,
+  GatsbySVG,
   GraphQLSVG,
   GsapSVG,
   JavascriptSVG,
   LaravelSVG,
-  NestSVG,
   NextSVG,
   OpenAISVG,
   PrismaSVG,
   ReactSVG,
   ReduxSVG,
   SanitySVG,
-  // StripeSVG,
+  // NestSVG,
   SupabaseSVG,
   TailwindSVG,
   TypescriptSVG,
@@ -49,6 +49,10 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
     icon: <GraphQLSVG width={42} />,
   },
   {
+    name: "Gatsby",
+    icon: <GatsbySVG width={42} className="p-1" />,
+  },
+  {
     name: "Vue",
     icon: <VueSVG width={42} />,
   },
@@ -73,30 +77,29 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
     icon: <FramerSVG width={42} />,
   },
   {
-    name: "Supabase",
-    icon: <SupabaseSVG width={42} />,
+    name: "Sanity",
+    icon: <SanitySVG width={42} />,
   },
   {
     name: "OpenAI",
     icon: <OpenAISVG width={42} />,
   },
-
   {
     name: "Prisma",
     icon: <PrismaSVG width={42} />,
   },
   {
-    name: "Sanity",
-    icon: <SanitySVG width={42} />,
+    name: "Supabase",
+    icon: <SupabaseSVG width={42} />,
   },
   {
     name: "Express",
     icon: <ExpressSVG width={42} />,
   },
-  {
-    name: "NestJS",
-    icon: <NestSVG width={42} />,
-  },
+  // {
+  //   name: "NestJS",
+  //   icon: <NestSVG width={42} />,
+  // },
   {
     name: "Docker",
     icon: <DockerSVG width={42} />,
@@ -113,7 +116,9 @@ export function SkillList() {
       {techIconList.map(({ name, icon }: { name: string; icon: React.ReactNode }) => (
         <li key={`technology-item-${name}`}>
           <Tooltip>
-            <TooltipTrigger asChild>{icon}</TooltipTrigger>
+            <TooltipTrigger asChild className="hover:text-primary transition hover:scale-110">
+              {icon}
+            </TooltipTrigger>
             <TooltipContent>
               <p>{name}</p>
             </TooltipContent>
