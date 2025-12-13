@@ -23,7 +23,7 @@ export const ContactForm = () => {
     <form key={formKey} action={formAction} className="mt-8 mb-8 h-auto w-full max-w-2xl" aria-label="Contact form">
       <LabelInputContainer>
         <Input
-          className="bg-background border-input border"
+          className={cn("bg-background border-input border", currentState.errors?.name && "border-destructive")}
           name="name"
           type="text"
           placeholder="Name"
@@ -32,11 +32,18 @@ export const ContactForm = () => {
           autoComplete="name"
           disabled={isPending}
           defaultValue={currentState.values?.name || ""}
+          aria-invalid={!!currentState.errors?.name}
+          aria-describedby={currentState.errors?.name ? "name-error" : undefined}
         />
+        {currentState.errors?.name && (
+          <p id="name-error" className="text-destructive text-sm" role="alert">
+            {currentState.errors.name}
+          </p>
+        )}
       </LabelInputContainer>
       <LabelInputContainer>
         <Input
-          className="bg-background border-input border"
+          className={cn("bg-background border-input border", currentState.errors?.email && "border-destructive")}
           name="email"
           placeholder="Email"
           type="email"
@@ -45,11 +52,21 @@ export const ContactForm = () => {
           autoComplete="email"
           disabled={isPending}
           defaultValue={currentState.values?.email || ""}
+          aria-invalid={!!currentState.errors?.email}
+          aria-describedby={currentState.errors?.email ? "email-error" : undefined}
         />
+        {currentState.errors?.email && (
+          <p id="email-error" className="text-destructive text-sm" role="alert">
+            {currentState.errors.email}
+          </p>
+        )}
       </LabelInputContainer>
       <LabelInputContainer>
         <Textarea
-          className="bg-background border-input resize-none border"
+          className={cn(
+            "bg-background border-input resize-none border",
+            currentState.errors?.message && "border-destructive"
+          )}
           rows={6}
           name="message"
           placeholder="Message"
@@ -58,7 +75,14 @@ export const ContactForm = () => {
           autoComplete="message"
           disabled={isPending}
           defaultValue={currentState.values?.message || ""}
+          aria-invalid={!!currentState.errors?.message}
+          aria-describedby={currentState.errors?.message ? "message-error" : undefined}
         />
+        {currentState.errors?.message && (
+          <p id="message-error" className="text-destructive text-sm" role="alert">
+            {currentState.errors.message}
+          </p>
+        )}
       </LabelInputContainer>
       <Input type="hidden" name="website" className="honeypot" tabIndex={-1} aria-hidden="true" autoComplete="off" />
 

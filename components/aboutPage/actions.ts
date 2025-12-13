@@ -12,6 +12,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export type FormState = {
   success?: boolean;
   error?: string;
+  errors?: {
+    name?: string;
+    email?: string;
+    message?: string;
+  };
   message?: string;
   values?: {
     name?: string;
@@ -23,12 +28,12 @@ export type FormState = {
 export async function submitContactForm(_prevState: FormState, formData: FormData): Promise<FormState> {
   try {
     const formSchema = z.object({
-      name: z.string().min(1),
-      email: z.email(),
-      message: z.string().min(1),
+      name: z.string().min(3, "Name must be at least 3 characters long"),
+      email: z.email({ message: "Please enter a valid email address" }),
+      message: z.string().min(3, "Message must be at least 3 characters long"),
     });
 
-    const { data, success } = formSchema.safeParse({
+    const result = formSchema.safeParse({
       name: formData.get("name"),
       email: formData.get("email"),
       message: formData.get("message"),
@@ -43,10 +48,19 @@ export async function submitContactForm(_prevState: FormState, formData: FormDat
       };
     }
 
-    if (!success) {
+    if (!result.success) {
+      const fieldErrors: FormState["errors"] = {};
+
+      result.error.issues.forEach((issue) => {
+        const field = issue.path[0] as keyof typeof fieldErrors;
+        if (field === "name" || field === "email" || field === "message") {
+          fieldErrors[field] = issue.message;
+        }
+      });
+
       return {
         success: false,
-        error: "Please enter a valid email address",
+        errors: fieldErrors,
         values: {
           name: formData.get("name") as string,
           email: formData.get("email") as string,
@@ -55,6 +69,7 @@ export async function submitContactForm(_prevState: FormState, formData: FormDat
       };
     }
 
+    const { data } = result;
     // Get geo location
     const geoLocation = await getGeoLocation();
 

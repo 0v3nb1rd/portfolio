@@ -12,9 +12,7 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 const NewsData = async () => {
-  // TODO: Remove this Promise delay after testing
-  // await new Promise((resolve) => setTimeout(resolve, 1000));
-  const news = await getNews({ limit: 15, source: "devto" });
+  const news = await getNews({ limit: 15, source: "all" });
   return <NewsList news={news} />;
 };
 
