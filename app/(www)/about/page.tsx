@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { AboutPage } from "@/components/aboutPage/page";
+import { AboutPage } from "@/app/(www)/about/about-grid";
 
 export const metadata: Metadata = {
   title: "About",

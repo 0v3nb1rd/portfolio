@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { PageMotion } from "@/components/page-motion";
-import { ProjectList } from "@/components/projectPage";
+import { ProjectList } from "@/components/projectPage/project-list";
 import { ProjectSkeleton } from "@/components/projectPage/project-skeleton";
 import { PROJECTS_QUERY } from "@/lib/queries";
 import { client } from "@/sanity/lib/client";

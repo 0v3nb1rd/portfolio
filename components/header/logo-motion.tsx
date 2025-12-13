@@ -2,7 +2,9 @@
 
 import { motion } from "motion/react";
 
-export function MLogo({ children }: React.PropsWithChildren) {
+import { Logo } from "../icons";
+
+export function LogoMotion() {
   return (
     <motion.div
       className="relative inline-block"
@@ -17,7 +19,7 @@ export function MLogo({ children }: React.PropsWithChildren) {
         },
       }}
     >
-      {children}
+      <Logo />
     </motion.div>
   );
 }

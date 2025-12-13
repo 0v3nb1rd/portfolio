@@ -3,11 +3,9 @@
 import { motion, type Variants } from "motion/react";
 import { ViewTransition } from "react";
 
+import { ContactForm } from "@/components/forms/contact-form";
+import { GithubSVG, LetterSVG, LinkedInSVG } from "@/components/icons";
 import { siteConfig } from "@/config/site";
-
-import { GithubSVG, LetterSVG, LinkedInSVG } from "../icons";
-
-import { ContactForm } from "./contact-form";
 
 const containerVariants: Variants = {
   initial: {

@@ -5,9 +5,8 @@ import { useActionState, ViewTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { type FormState, submitContactForm } from "@/lib/actions/contact";
 import { cn } from "@/lib/utils";
-
-import { type FormState, submitContactForm } from "./actions";
 
 const LabelInputContainer = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return <div className={cn("mb-1 flex w-full flex-col space-y-2 md:mb-4", className)}>{children}</div>;

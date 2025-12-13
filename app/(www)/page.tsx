@@ -1,4 +1,4 @@
-import { HomeGrid } from "@/components/home-grid";
+import { HomeGrid } from "./home-grid";
 
 export default function Home() {
   return (

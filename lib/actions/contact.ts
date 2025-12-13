@@ -3,7 +3,7 @@
 import { Resend } from "resend";
 import * as z from "zod";
 
-import ContactThankYouEmail from "@/components/email-temp";
+import ContactThankYouEmail from "@/components/forms/email-temp";
 import { siteConfig } from "@/config/site";
 import { getGeoLocation } from "@/lib/geolocation";
 
@@ -25,11 +25,11 @@ export type FormState = {
   };
 };
 
-export async function submitContactForm(_prevState: FormState, formData: FormData): Promise<FormState> {
+export const submitContactForm = async (_prevState: FormState, formData: FormData): Promise<FormState> => {
   try {
     const formSchema = z.object({
       name: z.string().min(3, "Name must be at least 3 characters long"),
-      email: z.email({ message: "Please enter a valid email address" }),
+      email: z.string().email({ message: "Please enter a valid email address" }),
       message: z.string().min(3, "Message must be at least 3 characters long"),
     });
 
@@ -115,4 +115,4 @@ export async function submitContactForm(_prevState: FormState, formData: FormDat
       },
     };
   }
-}
+};

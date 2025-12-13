@@ -5,9 +5,8 @@ import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
 
-import { CVButton } from "./CVButton";
-import { Logo } from "./icons";
-import { MLogo } from "./m-logo";
+import { CVButton } from "./cv-button";
+import { LogoMotion } from "./logo-motion";
 import { ModeToggle } from "./mode-toggle";
 import { NavMenu } from "./nav-menu";
 
@@ -22,9 +21,7 @@ export default function Header() {
             aria-label={`Homepage - ${siteConfig.name}`}
             tabIndex={0}
           >
-            <MLogo>
-              <Logo />
-            </MLogo>
+            <LogoMotion />
           </Link>
 
           <NavMenu className="order-1 mx-auto w-full md:order-0 md:w-auto lg:absolute lg:inset-x-0" />

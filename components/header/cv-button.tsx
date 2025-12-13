@@ -2,9 +2,8 @@
 
 import { motion } from "motion/react";
 
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
-
-import { Button } from "./ui/button";
 
 export const CVButton = ({ children }: React.PropsWithChildren) => {
   return (

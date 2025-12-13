@@ -1,4 +1,4 @@
-export type SiteConfig = typeof siteConfig;
+import type { JobExperienceType } from "@/types";
 
 export const siteConfig = {
   name: "Nazar Khaylo",
@@ -15,7 +15,7 @@ export const siteConfig = {
     "Portfolio",
   ],
   aboutText:
-    "Hello! I’m a full-stack developer passionate about building clear, fast and purposeful software. I love clean design, structured code and learning from smart people. For me, development isn’t just a job — it’s how I express creativity and logic together. Currently I focus on building scalable frontends with React and robust APIs with Node.",
+    "Hello! I’m a full-stack developer passionate about building clear, fast and purposeful software. I love clean design, structured code and learning from smart people. For me, development isn’t just a job — it’s how I express creativity and logic together. Currently I focus on building scalable frontend with React and robust APIs with Node.",
   url: "https://ovbi.dev",
   locale: "en_US",
   navItems: [
@@ -53,6 +53,30 @@ export const siteConfig = {
     email: "0v3nb1rd@gmail.com",
     sponsor: "https://www.buymeacoffee.com/0v3nb1rd",
   },
+
+  experience: [
+    {
+      position: "Frontend Developer",
+      description: "Building modern web apps from scratch. Developing CMS.",
+      dateFrom: "2020",
+      dateTo: "",
+      company: "Asign",
+    },
+    {
+      position: "Freelance Developer",
+      description: "Building, supporting and adding new features to websites and web apps.",
+      dateFrom: "2016",
+      dateTo: "2021",
+      company: "Company 2",
+    },
+    {
+      position: "Link-builder",
+      description: "Building links and posts in forums.",
+      dateFrom: "2014",
+      dateTo: "2015",
+      company: "Company 3",
+    },
+  ] as JobExperienceType[],
 
   // Default theme: "system" | "light" | "dark"
   defaultTheme: (process.env.NEXT_PUBLIC_DEFAULT_THEME as "light" | "dark" | "system") || "system",

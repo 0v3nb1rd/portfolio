@@ -4,12 +4,11 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { ViewTransition } from "react";
 
+import { ExperienceList } from "@/components/experience-list";
+import { BgTTenSVG } from "@/components/icons/bg-tten";
+import { SkillList } from "@/components/skill-list";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { siteConfig } from "@/config/site";
-
-import { ExperienceList } from "./experience-list";
-import { BgTTenSVG } from "./icons/bg-tten";
-import { SkillList } from "./skill-list";
 
 export function HomeGrid() {
   return (
