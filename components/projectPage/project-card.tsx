@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
 import { Project } from "@/types/sanity";
 
@@ -92,7 +93,9 @@ export function ProjectCard({ project }: { project: Project }) {
         href={project.url}
         target="_blank"
         rel="nofollow noopener noreferrer"
-        className="bg-card text-foreground hover:bg-accent relative col-span-2 flex h-auto flex-col overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:max-h-24"
+        className={cn(
+          "bg-card text-foreground hover:bg-accent relative col-span-2 flex h-auto flex-col overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:max-h-24"
+        )}
       >
         <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">
           <LinkSVG className="h-12 w-12" />
@@ -100,10 +103,15 @@ export function ProjectCard({ project }: { project: Project }) {
       </a>
 
       <a
-        href={project.github}
+        {...(project.github ? { href: project.github } : { disabled: true })}
         target="_blank"
         rel="nofollow noopener noreferrer"
-        className="bg-card group text-foreground hover:bg-accent relative col-span-2 flex h-auto overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:max-h-24"
+        className={cn(
+          "bg-card text-foreground relative col-span-2 flex h-auto overflow-hidden rounded-md border p-4 lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:max-h-24",
+          !project.github && "pointer-events-none opacity-40",
+          project.github &&
+            "hover:bg-accent group cursor-pointer shadow transition-colors motion-reduce:transition-none"
+        )}
       >
         <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">
           <GithubSVG className="h-12 w-12 p-0.5" />

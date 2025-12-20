@@ -46,7 +46,7 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
   },
   {
     name: "GraphQL",
-    icon: <GraphQLSVG width={42} />,
+    icon: <GraphQLSVG width={42} className="p-1" />,
   },
   {
     name: "Gatsby",
@@ -70,7 +70,7 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
   },
   {
     name: "GSAP",
-    icon: <GsapSVG width={42} />,
+    icon: <GsapSVG width={42} className="p-1" />,
   },
   {
     name: "Framer Motion",
@@ -78,7 +78,7 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
   },
   {
     name: "Sanity",
-    icon: <SanitySVG width={42} />,
+    icon: <SanitySVG width={42} className="p-1" />,
   },
   {
     name: "OpenAI",
@@ -86,7 +86,7 @@ export const techIconList: { name: string; icon: React.ReactNode }[] = [
   },
   {
     name: "Prisma",
-    icon: <PrismaSVG width={42} />,
+    icon: <PrismaSVG width={42} className="p-1" />,
   },
   {
     name: "Supabase",

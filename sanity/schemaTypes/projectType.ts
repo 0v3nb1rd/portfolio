@@ -19,6 +19,7 @@ const STACK_OPTIONS: { title: string; value: string }[] = [
   { title: "Next.js", value: "nextjs" },
   { title: "NestJS", value: "nestjs" },
   { title: "Node.js", value: "nodejs" },
+  { title: "Prisma", value: "prisma" },
   { title: "Docker", value: "docker" },
   { title: "Gulp", value: "gulp" },
   { title: "PHP", value: "php" },
