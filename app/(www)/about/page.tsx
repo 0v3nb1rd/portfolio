@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next/types";
 
 import { AboutPage } from "@/app/(www)/about/about-grid";
 

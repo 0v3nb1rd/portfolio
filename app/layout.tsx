@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { Metadata } from "next";
+import type { Metadata } from "next/types";
 
 import { inter, manrope } from "@/config/fonts";
 import { siteConfig } from "@/config/site";

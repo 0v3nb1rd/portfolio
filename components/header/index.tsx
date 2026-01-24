@@ -17,7 +17,7 @@ export default function Header() {
         <nav className="flex flex-wrap items-center justify-center gap-4 py-4 md:justify-between">
           <Link
             href="/"
-            className="relative inline-block min-w-28 flex-1 md:min-w-auto"
+            className="relative inline-block min-w-28 md:min-w-auto"
             aria-label={`Homepage - ${siteConfig.name}`}
             tabIndex={0}
           >

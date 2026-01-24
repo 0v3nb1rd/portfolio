@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next/types";
 
 import { PageMotion } from "@/components/page-motion";
 import { ProjectList } from "@/components/projectPage/project-list";

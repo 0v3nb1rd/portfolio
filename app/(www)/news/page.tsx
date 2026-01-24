@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next/types";
 
 import { NewsList } from "@/components/newsPage/news-list";
 import { NewsSkeleton } from "@/components/newsPage/news-skeleton";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export const revalidate = 3600;
 
 const NewsData = async () => {
-  const news = await getNews({ limit: 15, source: "all" });
+  const news = await getNews({ limit: 15, source: "devto" });
   return <NewsList news={news} />;
 };
 

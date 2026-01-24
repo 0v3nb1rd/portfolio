@@ -34,7 +34,7 @@ const HACKER_NEWS_API_URL = "https://hacker-news.firebaseio.com/v0/";
 const DEV_TO_API_URL = "https://dev.to/api/";
 
 const getJSON = async (url: string) => {
-  const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } });
+  const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } } as RequestInit);
   if (!res.ok) throw new Error(`${url} ${res.status}`);
   return res.json();
 };
@@ -61,7 +61,7 @@ async function fetchDevTo(limit: number, tag?: string): Promise<NewsType[]> {
 export async function enrichWithOG(url: string): Promise<{ image?: string; description?: string }> {
   const r = await fetch(`https://api.microlink.io/?url=${encodeURIComponent(url)}&audio=false&video=false`, {
     next: { revalidate: REVALIDATE_SECONDS },
-  });
+  } as RequestInit);
   if (!r.ok) return {};
   const j = await r.json();
   return {

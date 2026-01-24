@@ -12,7 +12,7 @@ export const CVButton = ({ children }: React.PropsWithChildren) => {
         target="_blank"
         className="relative"
         rel="noopener noreferrer"
-        href="./cv-nazar-kahylo.pdf"
+        href="./CV_Nazar_Khaylo.pdf"
         aria-label={`Contact ${siteConfig.name}`}
       >
         <motion.span
