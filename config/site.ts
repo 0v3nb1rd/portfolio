@@ -2,17 +2,24 @@ import type { JobExperienceType } from "@/types";
 
 export const siteConfig = {
   name: "Nazar Khaylo",
-  title: `Full Stack Developer`,
+  title: `Frontend Software Developer`,
   description:
     "Full-stack developer passionate about building clear, fast and purposeful software. Specialized in React, Next.js, and Node.js.",
   keywords: [
     "Nazar Khaylo",
+    "Nazar Khaylo Portfolio",
+    "Frontend Software Developer",
+    "Frontend Engineer",
     "Full Stack Developer",
     "JavaScript Developer",
     "React Developer",
     "Next.js Developer",
     "Node.js Developer",
+    "NestJS Developer",
     "Portfolio",
+    "0v3nb1rd",
+    "01bird",
+    "ovbi.dev",
   ],
   aboutText:
     "Hello! I’m a full-stack developer passionate about building clear, fast and purposeful software. I love clean design, structured code and learning from smart people. For me, development isn’t just a job — it’s how I express creativity and logic together. Currently I focus on building scalable frontend with React and robust APIs with Node.",
