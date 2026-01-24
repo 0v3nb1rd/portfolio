@@ -5,16 +5,14 @@ import { siteConfig } from "@/config/site";
 export default function robots(): MetadataRoute.Robots {
   // Check if it's a Vercel auto-generated domain (*.vercel.app)
   const isVercelAutoDomain = process.env.VERCEL_URL?.includes("vercel.app");
+  const isProduction = process.env.VERCEL_ENV === "production";
 
   // Block indexing for:
-  // 1. Vercel auto-generated domains (*.vercel.app) - even if production
+  // 1. Vercel auto-generated domains (*.vercel.app) - even if production (to avoid duplicate content)
   // 2. Preview deployments
-  // 3. Local development
-  const shouldBlockIndexing =
-    isVercelAutoDomain ||
-    process.env.VERCEL_ENV === "preview" ||
-    process.env.VERCEL_ENV === "development" ||
-    !process.env.VERCEL_ENV;
+  // 3. Development deployments
+  // 4. Local development (when VERCEL_ENV is not set)
+  const shouldBlockIndexing = isVercelAutoDomain || !isProduction;
 
   if (shouldBlockIndexing) {
     return {
