@@ -18,20 +18,24 @@ export default function robots(): MetadataRoute.Robots {
 
   if (shouldBlockIndexing) {
     return {
-      rules: {
-        userAgent: "*",
-        disallow: "/",
-      },
+      rules: [
+        {
+          userAgent: "*",
+          disallow: "/",
+        },
+      ],
     };
   }
 
   // Only allow indexing for production on custom domain
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+      },
+    ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
+    host: siteConfig.url.replace(/^https?:\/\//, ""),
   };
 }
