@@ -16,9 +16,9 @@ export function HomeGrid() {
       <ul className="grid grid-cols-4 gap-5 lg:grid-cols-3">
         <motion.li
           className="bg-card height-auto relative col-span-full overflow-hidden rounded-md border shadow lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-2"
-          initial={{ opacity: 1, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.25, delay: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.4, 0.8, 1], scale: [0.8, 1] }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <div className="text-foreground relative flex h-full flex-col items-center justify-center p-4">
             <Avatar className="mb-2 size-24 text-2xl" role="img" aria-label={`Photo of ${siteConfig.name}`}>
