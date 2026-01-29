@@ -8,14 +8,10 @@ import { SanityLive } from "@/sanity/lib/live";
 import "./globals.css";
 import { Providers } from "./providers";
 
-// Block indexing for:
-// 1. Vercel auto-generated domains (*.vercel.app) - even if production
-// 2. Preview/development deployments
-const isVercelAutoDomain = process.env.VERCEL_URL?.includes("vercel.app");
-const isVercelPreview = process.env.VERCEL_ENV !== "production";
-const shouldBlockIndexing = isVercelAutoDomain || isVercelPreview;
+const shouldBlockIndexing = process.env.VERCEL_ENV !== "production";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -38,6 +34,9 @@ export const metadata: Metadata = {
           follow: true,
         },
       },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,

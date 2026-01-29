@@ -7,6 +7,9 @@ import { getNews } from "@/lib/news";
 
 export const metadata: Metadata = {
   title: "News",
+  alternates: {
+    canonical: "/news",
+  },
 };
 
 export const revalidate = 3600;

@@ -8,6 +8,9 @@ import { client } from "@/sanity/lib/client";
 
 export const metadata: Metadata = {
   title: "Projects",
+  alternates: {
+    canonical: "/projects",
+  },
 };
 
 export const revalidate = 3600;

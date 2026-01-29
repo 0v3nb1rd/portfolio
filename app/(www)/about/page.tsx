@@ -4,6 +4,9 @@ import { AboutPage } from "@/app/(www)/about/about-grid";
 
 export const metadata: Metadata = {
   title: "About",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function About() {
