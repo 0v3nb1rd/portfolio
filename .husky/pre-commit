@@ -1,1 +1,5 @@
-npx lint-staged
+# Завантажити nvm, щоб node був у PATH (для коміту з IDE)
+[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh"
+
+export BASELINE_BROWSER_MAPPING_IGNORE_OLD_DATA=true
+./node_modules/.bin/lint-staged
