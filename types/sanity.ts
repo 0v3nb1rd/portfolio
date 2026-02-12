@@ -29,6 +29,7 @@ export type Project = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  order?: number;
   title: string;
   slug: Slug;
   description: string;
@@ -217,6 +218,7 @@ export type PROJECTS_QUERY_RESULT = Array<{
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  order?: number;
   title: string;
   slug: Slug;
   description: string;

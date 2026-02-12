@@ -50,6 +50,13 @@ export const projectType = defineType({
   type: "document",
   fields: [
     defineField({
+      name: "order",
+      title: "Order",
+      type: "number",
+      description: "The order of the project in the list",
+      initialValue: 0,
+    }),
+    defineField({
       name: "title",
       title: "Title",
       type: "string",
