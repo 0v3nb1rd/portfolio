@@ -138,14 +138,14 @@ export type SanityFileAsset = {
   title?: string;
   description?: string;
   altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
+  sha1hash: string;
+  extension: string;
+  mimeType: string;
+  size: number;
+  assetId: string;
   uploadId?: string;
-  path?: string;
-  url?: string;
+  path: string;
+  url: string;
   source?: SanityAssetSourceData;
 };
 
@@ -167,14 +167,14 @@ export type SanityImageAsset = {
   title?: string;
   description?: string;
   altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
+  sha1hash: string;
+  extension: string;
+  mimeType: string;
+  size: number;
+  assetId: string;
   uploadId?: string;
-  path?: string;
-  url?: string;
+  path: string;
+  url: string;
   metadata?: SanityImageMetadata;
   source?: SanityAssetSourceData;
 };
@@ -203,15 +203,9 @@ export type AllSanitySchemaTypes =
 
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
-type ArrayOf<T> = Array<
-  T & {
-    _key: string;
-  }
->;
-
 // Source: lib/queries/index.ts
 // Variable: PROJECTS_QUERY
-// Query: *[_type == "project"] | order(date desc)
+// Query: *[_type == "project"] | order(order asc, date desc)
 export type PROJECTS_QUERY_RESULT = Array<{
   _id: string;
   _type: "project";
@@ -258,6 +252,6 @@ export type PROJECTS_QUERY_RESULT = Array<{
 
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "project"] | order(date desc)': PROJECTS_QUERY_RESULT;
+    '*[_type == "project"] | order(order asc, date desc)': PROJECTS_QUERY_RESULT;
   }
 }
