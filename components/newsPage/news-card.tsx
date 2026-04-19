@@ -19,7 +19,7 @@ export function NewsCard({ news, ...props }: Props) {
           {!news.image ? (
             <>
               <ImgPlaceholderSVG className="h-24 max-h-full max-w-full object-cover" />
-              <span className="text-muted-foreground text-center font-bold">No image available</span>
+              <span className="text-foreground/80 text-center font-bold">No image available</span>
             </>
           ) : (
             <Image
@@ -34,7 +34,7 @@ export function NewsCard({ news, ...props }: Props) {
           )}
         </div>
         <h2 className="h4 font-balance mb-2">{news.title}</h2>
-        <p className="mt-auto text-sm tracking-tight opacity-80">
+        <p className="text-foreground/80 mt-auto text-sm tracking-tight">
           {news.author && <>👤 {news.author} • </>}
           {news.publishedAt && (
             <time dateTime={news.publishedAt}>

@@ -47,7 +47,7 @@ export const AboutPage = () => {
                 <GithubSVG className="mb-1" />
                 <h2 className="h2 font-balance">Github Profile</h2>
               </div>
-              <p className="text-muted-foreground hidden text-center text-lg tracking-tight opacity-80 sm:block">
+              <p className="text-foreground/80 hidden text-center text-lg tracking-tight sm:block">
                 Find more of my repositories
               </p>
             </div>
@@ -90,10 +90,10 @@ export const AboutPage = () => {
           <div className="bg-card flex h-full flex-col items-center justify-center gap-1 rounded-md border p-4 shadow">
             <h1 className="h2 font-balance text-center">
               <span>Contact </span>
-              <i className="text-muted-foreground">with me</i>
+              <i className="text-foreground/80">with me</i>
             </h1>
 
-            <p className="text-muted-foreground text-center text-lg leading-tight tracking-tight opacity-80">
+            <p className="text-foreground/80 text-center text-lg leading-tight tracking-tight">
               You can also get in touch with me through this form below.
             </p>
 

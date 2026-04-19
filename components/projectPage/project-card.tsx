@@ -75,7 +75,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="mb-2">
-          <p className="text-muted-foreground text-lg tracking-tight opacity-80 transition-opacity group-hover:opacity-100">
+          <p className="text-foreground/80 text-lg tracking-tight transition-opacity group-hover:opacity-100">
             {project.description}
           </p>
         </div>

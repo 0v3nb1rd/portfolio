@@ -30,11 +30,11 @@ export function HomeGrid() {
             </Avatar>
 
             <h1 className="h1">{siteConfig.name}</h1>
-            <p className="text-muted-foreground text-center text-lg tracking-tight opacity-80">
+            <p className="text-foreground/80 text-center text-lg tracking-tight">
               Find more in my{" "}
               <a
                 href="https://github.com/0v3nb1rd/"
-                className="hover:text-primary text-inherit underline underline-offset-2 transition-colors"
+                className="text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -52,7 +52,7 @@ export function HomeGrid() {
         >
           <div className="bg-card text-foreground relative flex h-full flex-col justify-center gap-2 p-4">
             <h2 className="h2">Who am I?</h2>
-            <i className="text-muted-foreground p-2 text-lg tracking-tight">{siteConfig.aboutText}</i>
+            <i className="text-foreground/80 p-2 text-lg tracking-tight">{siteConfig.aboutText}</i>
           </div>
         </motion.li>
 
@@ -65,7 +65,7 @@ export function HomeGrid() {
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
             <h2 className="h2 text-center text-balance">
               <span>👨‍💻 Frontend </span>
-              <i className="text-muted-foreground">Developer</i>
+              <i className="text-foreground/80">Developer</i>
             </h2>
           </div>
 
@@ -83,7 +83,7 @@ export function HomeGrid() {
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
             <h2 className="h2 text-center text-balance">
               <span className="">🚀 Make it </span>
-              <i className="text-muted-foreground">happen.</i>
+              <i className="text-foreground/80">happen.</i>
             </h2>
           </div>
 
