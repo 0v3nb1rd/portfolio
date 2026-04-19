@@ -75,7 +75,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="mb-2">
-          <p className="text-foreground/80 text-lg tracking-tight transition-opacity group-hover:opacity-100">
+          <p className="text-muted-foreground text-lg tracking-tight transition-opacity group-hover:opacity-100">
             {project.description}
           </p>
         </div>
@@ -93,6 +93,7 @@ export function ProjectCard({ project }: { project: Project }) {
         href={project.url}
         target="_blank"
         rel="nofollow noopener noreferrer"
+        aria-label={`Open ${project.title ?? "project"} live site`}
         className={cn(
           "bg-card text-foreground hover:bg-accent relative col-span-2 flex h-auto flex-col overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4 lg:max-h-24"
         )}
@@ -103,9 +104,12 @@ export function ProjectCard({ project }: { project: Project }) {
       </a>
 
       <a
-        {...(project.github ? { href: project.github } : { disabled: true })}
+        href={project.github ?? undefined}
         target="_blank"
         rel="nofollow noopener noreferrer"
+        aria-label={`Open ${project.title ?? "project"} GitHub repository`}
+        aria-disabled={project.github ? undefined : "true"}
+        tabIndex={project.github ? undefined : -1}
         className={cn(
           "bg-card text-foreground relative col-span-2 flex h-auto overflow-hidden rounded-md border p-4 lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:max-h-24",
           !project.github && "pointer-events-none opacity-40",

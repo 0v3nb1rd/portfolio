@@ -30,7 +30,7 @@ export default function Header() {
             <ModeToggle />
 
             <CVButton>
-              <span className="hidden tracking-wider sm:inline">Resume </span>
+              <span className="text-foreground hidden font-semibold tracking-wider sm:inline">Resume </span>
               <DownloadIcon className="size-6" />
             </CVButton>
           </div>

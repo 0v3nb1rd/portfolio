@@ -12,14 +12,14 @@ export function NewsCard({ news, ...props }: Props) {
   return (
     <li className="bg-card/60 hover:bg-card rounded-md border p-4 shadow backdrop-blur-md transition-all will-change-transform hover:-translate-y-1 hover:shadow-lg">
       <a href={news.url} target="_blank" rel="noreferrer" className="flex h-full flex-col" {...props}>
-        <div className="mb-2 text-xs tracking-wide uppercase opacity-70">
+        <div className="text-muted-foreground mb-2 text-xs tracking-wide uppercase">
           {news.source === "devto" ? "Dev.to" : "Hacker News"}
         </div>
         <div className="relative mb-2 flex aspect-video w-full flex-col items-center justify-center overflow-hidden rounded-md">
           {!news.image ? (
             <>
               <ImgPlaceholderSVG className="h-24 max-h-full max-w-full object-cover" />
-              <span className="text-foreground/80 text-center font-bold">No image available</span>
+              <span className="text-muted-foreground text-center font-bold">No image available</span>
             </>
           ) : (
             <Image
@@ -34,7 +34,7 @@ export function NewsCard({ news, ...props }: Props) {
           )}
         </div>
         <h2 className="h4 font-balance mb-2">{news.title}</h2>
-        <p className="text-foreground/80 mt-auto text-sm tracking-tight">
+        <p className="text-muted-foreground mt-auto text-sm tracking-tight">
           {news.author && <>👤 {news.author} • </>}
           {news.publishedAt && (
             <time dateTime={news.publishedAt}>

@@ -10,9 +10,9 @@ const experienceItems = siteConfig.experience.map((experience: JobExperienceType
   return (
     <li className="flex flex-col" key={experience.company}>
       <b className="text-lg">
-        - {experience.position} <span className="text-foreground/80 text-base font-medium">({date})</span>
+        - {experience.position} <span className="text-muted-foreground text-base font-medium">({date})</span>
       </b>
-      {/* <i className="text-foreground/80">{experience.description}</i> */}
+      {/* <i className="text-muted-foreground">{experience.description}</i> */}
     </li>
   );
 });

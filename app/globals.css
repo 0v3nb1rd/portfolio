@@ -15,7 +15,7 @@
   --secondary: oklch(0.8687 0.0043 56.366);
   --secondary-foreground: oklch(0.4461 0.0263 256.8018);
   --muted: oklch(0.9232 0.0026 48.7171);
-  --muted-foreground: oklch(0.551 0.0234 264.3637);
+  --muted-foreground: oklch(0.42 0.02 264);
   --accent: oklch(0.9376 0.026 321.9388);
   --accent-foreground: oklch(0.3729 0.0306 259.7328);
   --destructive: oklch(0.6368 0.2078 25.3313);
@@ -67,7 +67,7 @@
   --secondary: oklch(0.3359 0.0077 59.4197);
   --secondary-foreground: oklch(0.8717 0.0093 258.3382);
   --muted: oklch(0.2287 0.0074 67.4469);
-  --muted-foreground: oklch(0.7137 0.0192 261.3246);
+  --muted-foreground: oklch(0.78 0.02 261);
   --accent: oklch(0.3896 0.0074 59.4734);
   --accent-foreground: oklch(0.8717 0.0093 258.3382);
   --destructive: oklch(0.6368 0.2078 25.3313);
@@ -180,6 +180,16 @@
   }
 }
 
+@media (prefers-contrast: more) {
+  :root {
+    --muted-foreground: var(--foreground);
+  }
+
+  .dark {
+    --muted-foreground: var(--foreground);
+  }
+}
+
 @utility container {
   @apply mx-auto max-w-[1272px] px-4 sm:px-6;
 }
@@ -187,22 +197,22 @@
 @layer components {
   h1,
   .h1 {
-    @apply font-heading text-4xl font-extrabold tracking-tight text-shadow-lg;
+    @apply font-heading text-4xl font-extrabold tracking-tight;
   }
 
   h2,
   .h2 {
-    @apply font-heading text-3xl font-bold tracking-tight text-shadow-lg;
+    @apply font-heading text-3xl font-bold tracking-tight;
   }
 
   h3,
   .h3 {
-    @apply font-heading text-2xl font-bold tracking-tight text-shadow-lg;
+    @apply font-heading text-2xl font-bold tracking-tight;
   }
 
   h4,
   .h4 {
-    @apply font-heading text-lg leading-snug font-bold tracking-tight text-shadow-lg;
+    @apply font-heading text-lg leading-snug font-bold tracking-tight;
   }
 
   .GlowOnHover {

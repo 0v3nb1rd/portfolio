@@ -40,14 +40,14 @@ export const AboutPage = () => {
             href={siteConfig.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="group text-foreground bg-card hover:bg-accent relative flex h-full flex-col rounded-md border shadow transition-all motion-reduce:transition-none"
+            className="group text-foreground bg-card hover:bg-accent focus-visible:ring-ring relative flex h-full flex-col rounded-md border shadow transition-all focus-visible:ring-2 focus-visible:outline-none motion-reduce:transition-none"
           >
             <div className="flex h-full flex-col items-center justify-center gap-1 p-4">
               <div className="flex flex-col items-center gap-2">
                 <GithubSVG className="mb-1" />
                 <h2 className="h2 font-balance">Github Profile</h2>
               </div>
-              <p className="text-foreground/80 hidden text-center text-lg tracking-tight sm:block">
+              <p className="text-muted-foreground hidden text-center text-lg tracking-tight sm:block">
                 Find more of my repositories
               </p>
             </div>
@@ -59,7 +59,7 @@ export const AboutPage = () => {
             href={siteConfig.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-card text-foreground hover:bg-accent relative flex h-full flex-col overflow-hidden rounded-md border shadow transition-all motion-reduce:transition-none"
+            className="group bg-card text-foreground hover:bg-accent focus-visible:ring-ring relative flex h-full flex-col overflow-hidden rounded-md border shadow transition-all focus-visible:ring-2 focus-visible:outline-none motion-reduce:transition-none"
           >
             <div className="flex h-full items-center justify-center gap-2 p-4">
               <div className="flex items-center gap-3">
@@ -73,7 +73,7 @@ export const AboutPage = () => {
         <li className="col-span-full lg:col-span-1 lg:row-span-1">
           <a
             href={`mailto:${siteConfig.links.email}`}
-            className="group bg-card text-foreground hover:bg-accent relative flex h-full flex-col overflow-hidden rounded-md border shadow transition-all motion-reduce:transition-none"
+            className="group bg-card text-foreground hover:bg-accent focus-visible:ring-ring relative flex h-full flex-col overflow-hidden rounded-md border shadow transition-all focus-visible:ring-2 focus-visible:outline-none motion-reduce:transition-none"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -90,10 +90,10 @@ export const AboutPage = () => {
           <div className="bg-card flex h-full flex-col items-center justify-center gap-1 rounded-md border p-4 shadow">
             <h1 className="h2 font-balance text-center">
               <span>Contact </span>
-              <i className="text-foreground/80">with me</i>
+              <i className="text-muted-foreground">with me</i>
             </h1>
 
-            <p className="text-foreground/80 text-center text-lg leading-tight tracking-tight">
+            <p className="text-muted-foreground text-center text-lg leading-tight tracking-tight">
               You can also get in touch with me through this form below.
             </p>
 
