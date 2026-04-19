@@ -16,7 +16,8 @@ export const CVButton = ({ children }: React.PropsWithChildren) => {
         aria-label={`Contact ${siteConfig.name}`}
       >
         <motion.span
-          className="from-primary to-primary/60 absolute inset-0 z-[-1] rounded-md bg-linear-to-r"
+          aria-hidden="true"
+          className="from-primary to-primary/60 pointer-events-none absolute -inset-6 z-[-1] rounded-md bg-linear-to-r"
           initial={{ filter: "blur(0px)", opacity: 0 }}
           animate={{ filter: "blur(60px)", opacity: 1 }}
           transition={{
@@ -33,7 +34,7 @@ export const CVButton = ({ children }: React.PropsWithChildren) => {
           }}
         />
         <motion.span
-          className="relative z-10 flex items-center gap-2"
+          className="bg-background/95 text-foreground relative z-10 flex items-center gap-2 rounded-md px-3 py-1"
           initial={{ opacity: 0, rotate: 10 }}
           animate={{ opacity: 1, rotate: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}

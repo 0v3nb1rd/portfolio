@@ -103,24 +103,29 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
       </a>
 
-      <a
-        href={project.github ?? undefined}
-        target="_blank"
-        rel="nofollow noopener noreferrer"
-        aria-label={`Open ${project.title ?? "project"} GitHub repository`}
-        aria-disabled={project.github ? undefined : "true"}
-        tabIndex={project.github ? undefined : -1}
-        className={cn(
-          "bg-card text-foreground relative col-span-2 flex h-auto overflow-hidden rounded-md border p-4 lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:max-h-24",
-          !project.github && "pointer-events-none opacity-40",
-          project.github &&
-            "hover:bg-accent group cursor-pointer shadow transition-colors motion-reduce:transition-none"
-        )}
-      >
-        <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">
-          <GithubSVG className="h-12 w-12 p-0.5" />
+      {project.github ? (
+        <a
+          href={project.github}
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          aria-label={`Open ${project.title ?? "project"} GitHub repository`}
+          className="bg-card text-foreground hover:bg-accent group relative col-span-2 flex h-auto cursor-pointer overflow-hidden rounded-md border p-4 shadow transition-colors motion-reduce:transition-none lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:max-h-24"
+        >
+          <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">
+            <GithubSVG className="h-12 w-12 p-0.5" />
+          </div>
+        </a>
+      ) : (
+        <div
+          role="note"
+          aria-label={`${project.title ?? "Project"} has no public GitHub repository`}
+          className="bg-card text-foreground pointer-events-none relative col-span-2 flex h-auto overflow-hidden rounded-md border p-4 opacity-40 lg:col-start-4 lg:col-end-5 lg:row-start-3 lg:row-end-4 lg:max-h-24"
+        >
+          <div className="decoration-muted-foreground flex flex-1 flex-col items-center justify-center gap-4">
+            <GithubSVG aria-hidden="true" className="h-12 w-12 p-0.5" />
+          </div>
         </div>
-      </a>
+      )}
     </li>
   );
 }

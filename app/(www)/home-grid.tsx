@@ -34,7 +34,7 @@ export function HomeGrid() {
               Find more in my{" "}
               <a
                 href="https://github.com/0v3nb1rd/"
-                className="text-primary hover:text-primary/90 focus-visible:ring-ring rounded-sm underline underline-offset-2 transition-colors focus-visible:ring-2 focus-visible:outline-none"
+                className="text-foreground decoration-primary hover:decoration-primary/70 focus-visible:ring-ring rounded-sm font-semibold underline decoration-2 underline-offset-2 transition-colors focus-visible:ring-2 focus-visible:outline-none"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -69,7 +69,7 @@ export function HomeGrid() {
             </h2>
           </div>
 
-          <div className="text-primary absolute inset-0 size-full opacity-40">
+          <div aria-hidden="true" className="text-primary pointer-events-none absolute inset-0 size-full opacity-15">
             <BgTTenSVG className="h-auto w-full" />
           </div>
         </motion.li>
@@ -82,12 +82,12 @@ export function HomeGrid() {
         >
           <div className="text-foreground relative z-10 flex h-full items-center justify-center p-4">
             <h2 className="h2 text-center text-balance">
-              <span className="">🚀 Make it </span>
+              <span>🚀 Make it </span>
               <i className="text-muted-foreground">happen.</i>
             </h2>
           </div>
 
-          <div className="text-primary absolute inset-0 size-full opacity-40">
+          <div aria-hidden="true" className="text-primary pointer-events-none absolute inset-0 size-full opacity-15">
             <BgTTenSVG className="h-auto w-full" />
           </div>
         </motion.li>
