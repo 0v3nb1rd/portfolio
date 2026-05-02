@@ -1,9 +1,10 @@
 # Portfolio v2
 
-A personal portfolio site built with **Next.js**. Project and news content is managed in **Sanity**, and the contact form sends email via **Resend**. The UI uses **React**, **TypeScript**, **Tailwind CSS**, and **Radix**-based components.
+A personal portfolio site built with **Next.js**. Project and news content is managed in **Sanity**, and the contact form sends email via **Resend**. The UI uses **React**, **TypeScript**, **Tailwind CSS**, and **Radix**-based components. Transitions combine the **View Transitions API** (Next.js + React `<ViewTransition>`) with the **Motion** library for layered animations.
 
 ## Features
 
+- **View Transitions API** — enabled in [`next.config.ts`](next.config.ts) (`experimental.viewTransition`); layouts use React `<ViewTransition>` (`components/page-motion.tsx`, `app/(www)/` grids, contact form) for smoother navigations without blocking core content
 - Home, About, Projects, and News pages
 - Embedded Sanity Studio for content editing (`/studio`)
 - Contact form with server-side email delivery

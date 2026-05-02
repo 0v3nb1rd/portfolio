@@ -34,7 +34,7 @@ export const CVButton = ({ children }: React.PropsWithChildren) => {
           }}
         />
         <motion.span
-          className="bg-background/95 text-foreground relative z-10 flex items-center gap-2 rounded-md px-3 py-1"
+          className="text-foreground relative z-10 flex items-center gap-2 rounded-md px-3 py-1"
           initial={{ opacity: 0, rotate: 10 }}
           animate={{ opacity: 1, rotate: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
