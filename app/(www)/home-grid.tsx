@@ -24,7 +24,7 @@ export function HomeGrid() {
             <Avatar className="mb-2 size-24 text-2xl" aria-label={`Photo of ${siteConfig.name}`}>
               <AvatarImage
                 alt={`Photo of ${siteConfig.name}`}
-                src="https://res.cloudinary.com/dcey6ej58/image/upload/w_400,h_400,c_fill,g_auto,q_auto,f_auto/linkedin_1_gvhlsr.png"
+                src="https://res.cloudinary.com/dcey6ej58/image/upload/w_400,h_400,c_fill,g_auto,q_auto,f_auto/v1778016866/2026-05-06_00.33.59_ftvtga.jpg"
               />
               <AvatarFallback>{siteConfig.name.charAt(0)}</AvatarFallback>
             </Avatar>
