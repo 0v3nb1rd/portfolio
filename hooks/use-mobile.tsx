@@ -5,17 +5,18 @@ type Props = {
 };
 
 export function useIsMobile({ breakpoint = 768 }: Props = {}): boolean {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined);
+  const subscribe = React.useCallback(
+    (onStoreChange: () => void) => {
+      const mql = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+      mql.addEventListener("change", onStoreChange);
+      return () => mql.removeEventListener("change", onStoreChange);
+    },
+    [breakpoint]
+  );
 
-  React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
-    const onChange = () => {
-      setIsMobile(window.innerWidth < breakpoint);
-    };
-    mql.addEventListener("change", onChange);
-    setIsMobile(window.innerWidth < breakpoint);
-    return () => mql.removeEventListener("change", onChange);
+  const getSnapshot = React.useCallback(() => {
+    return window.innerWidth < breakpoint;
   }, [breakpoint]);
 
-  return !!isMobile;
+  return React.useSyncExternalStore(subscribe, getSnapshot, () => false);
 }
