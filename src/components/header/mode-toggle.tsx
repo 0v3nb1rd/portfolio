@@ -11,11 +11,6 @@ import { cn } from "@/lib/utils";
 
 export function ModeToggle() {
   const { setTheme, theme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const handleToggle = () => {
     if (theme === "system" || !theme) {
@@ -27,7 +22,7 @@ export function ModeToggle() {
     }
   };
 
-  if (!mounted) {
+  if (resolvedTheme === undefined) {
     return (
       <Button variant="ghost" size="icon-lg" className="cursor-pointer" aria-label="Toggle theme">
         <Moon className="size-6" />

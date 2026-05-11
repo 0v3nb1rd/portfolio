@@ -203,7 +203,7 @@ export type AllSanitySchemaTypes =
   | SanityImageAsset
   | Geopoint;
 
-// Source: lib/queries/index.ts
+// Source: src/lib/queries/index.ts
 // Variable: PROJECTS_QUERY
 // Query: *[_type == "project"] | order(order asc, date desc)
 export type PROJECTS_QUERY_RESULT = Array<{
