@@ -9,8 +9,15 @@ import { buttonVariants } from "@/components/ui/button";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+const noop = () => () => {};
+
 export function ModeToggle() {
   const { setTheme, theme, resolvedTheme } = useTheme();
+  const mounted = React.useSyncExternalStore(
+    noop,
+    () => true,
+    () => false
+  );
 
   const handleToggle = () => {
     if (theme === "system" || !theme) {
@@ -22,7 +29,7 @@ export function ModeToggle() {
     }
   };
 
-  if (resolvedTheme === undefined) {
+  if (!mounted) {
     return (
       <Button variant="ghost" size="icon-lg" className="cursor-pointer" aria-label="Toggle theme">
         <Moon className="size-6" />
