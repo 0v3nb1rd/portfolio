@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      # Dummy values: `sanity schema extract` and typechecking only need the
+      # variables to be set; no network calls are made against this project.
+      NEXT_PUBLIC_SANITY_PROJECT_ID: ci-placeholder
+      NEXT_PUBLIC_SANITY_DATASET: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate Sanity types
+        run: pnpm typegen
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm exec tsc --noEmit
