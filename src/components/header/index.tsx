@@ -26,7 +26,7 @@ export default function Header() {
 
           <NavMenu className="order-1 mx-auto w-full md:order-0 md:w-auto lg:absolute lg:inset-x-0" />
 
-          <div className="ml-auto flex items-center gap-4 md:w-auto">
+          <div className="flex items-center gap-4 sm:ml-auto md:w-auto">
             <ModeToggle />
 
             <CVButton>

@@ -4,7 +4,7 @@ import { PageMotion } from "@/components/page-motion";
 import { ProjectList } from "@/components/projectPage/project-list";
 import { ProjectSkeleton } from "@/components/projectPage/project-skeleton";
 import { PROJECTS_QUERY } from "@/lib/queries";
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -13,10 +13,8 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 3600;
-
 const ProjectsData = async () => {
-  const projects = await client.fetch(PROJECTS_QUERY);
+  const { data: projects } = await sanityFetch({ query: PROJECTS_QUERY });
   return <ProjectList projects={projects} />;
 };
 
