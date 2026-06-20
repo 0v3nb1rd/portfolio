@@ -4,6 +4,8 @@ import { DownloadIcon } from "lucide-react";
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
+import { useScrolled } from "@/hooks/use-scrolled";
+import { cn } from "@/lib/utils";
 
 import { CVButton } from "./cv-button";
 import { LogoMotion } from "./logo-motion";
@@ -11,10 +13,17 @@ import { ModeToggle } from "./mode-toggle";
 import { NavMenu } from "./nav-menu";
 
 export default function Header() {
+  const scrolled = useScrolled();
+
   return (
-    <header>
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b transition-colors duration-300",
+        scrolled ? "border-border/40 bg-background/70 backdrop-blur-md" : "border-transparent bg-transparent"
+      )}
+    >
       <div className="container">
-        <nav className="flex flex-wrap items-center justify-center gap-4 py-4 md:justify-between">
+        <nav className="flex flex-wrap items-center justify-center gap-4 py-3 md:justify-between">
           <Link
             href="/"
             className="relative inline-block min-w-28 md:min-w-auto"
