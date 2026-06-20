@@ -7,6 +7,8 @@ import { Logo } from "../icons";
 export function LogoMotion() {
   return (
     <motion.div
+      tabIndex={-1}
+      aria-hidden="true"
       className="relative inline-block"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
