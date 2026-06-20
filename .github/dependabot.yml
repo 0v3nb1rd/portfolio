@@ -1,0 +1,89 @@
+version: 2
+
+updates:
+  # ─────────────────────────────────────────────────────────────
+  # npm / pnpm dependencies (Dependabot reads pnpm-lock.yaml here)
+  # ─────────────────────────────────────────────────────────────
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Kyiv"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(dev-deps)"
+    groups:
+      # React core must move together (incl. its @types). Major = one reviewed PR.
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      # Next.js + its ESLint config are version-locked to each other.
+      next:
+        patterns:
+          - "next"
+          - "@next/*"
+          - "eslint-config-next"
+      # Radix primitives — bump as a set.
+      radix:
+        patterns:
+          - "@radix-ui/*"
+      # Sanity ecosystem (Studio + client + next-sanity + its styled-components peer).
+      sanity:
+        patterns:
+          - "sanity"
+          - "@sanity/*"
+          - "next-sanity"
+          - "styled-components"
+      # Tailwind v4 toolchain.
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+          - "tailwind-merge"
+          - "tw-animate-css"
+          - "prettier-plugin-tailwindcss"
+      # Linting / formatting / git hooks tooling.
+      linting:
+        patterns:
+          - "eslint"
+          - "@typescript-eslint/*"
+          - "prettier"
+          - "@trivago/prettier-plugin-sort-imports"
+          - "lint-staged"
+          - "husky"
+      # Everything else: batch minor + patch into a single PR.
+      # (Majors of ungrouped packages still arrive as individual PRs.)
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # ─────────────────────────────────────────────────────────────
+  # GitHub Actions used by .github/workflows/ci.yml
+  # ─────────────────────────────────────────────────────────────
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Kyiv"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
