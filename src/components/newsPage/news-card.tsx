@@ -10,8 +10,14 @@ type Props = {
 
 export function NewsCard({ news, ...props }: Props) {
   return (
-    <li className="bg-card/60 hover:bg-card rounded-md border p-4 shadow backdrop-blur-md transition-all will-change-transform hover:-translate-y-1 hover:shadow-lg">
-      <a href={news.url} target="_blank" rel="noreferrer" className="flex h-full flex-col" {...props}>
+    <li className="h-full">
+      <a
+        href={news.url}
+        target="_blank"
+        rel="noreferrer"
+        className="bg-card/60 hover:bg-card flex h-full flex-col rounded-md border p-4 shadow backdrop-blur-md transition-all will-change-transform hover:-translate-y-1 hover:shadow-lg"
+        {...props}
+      >
         <div className="text-muted-foreground mb-2 text-xs tracking-wide uppercase">
           {news.source === "devto" ? "Dev.to" : "Hacker News"}
         </div>
