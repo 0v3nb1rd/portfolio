@@ -7,7 +7,12 @@ import { siteConfig } from "@/config/site";
 
 export const CVButton = ({ children }: React.PropsWithChildren) => {
   return (
-    <Button variant="ghost" size="lg" className="GlowOnHover group relative cursor-pointer text-lg" asChild>
+    <Button
+      variant="ghost"
+      size="lg"
+      className="GlowOnHover group bg-card/70 border-border/60 relative cursor-pointer border text-lg shadow-sm"
+      asChild
+    >
       <a
         target="_blank"
         className="relative"
