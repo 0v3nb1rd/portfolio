@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     viewTransition: true,
   },
   images: {
+    formats: ["image/avif", "image/webp"],
     qualities: [75, 92],
     remotePatterns: [
       { hostname: "res.cloudinary.com" },
