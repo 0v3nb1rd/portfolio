@@ -43,3 +43,8 @@ next-env.d.ts
 
 # temporary files
 _temp
+
+# auto-installed agent skill artifacts (not part of the course)
+.agents/
+.claude/
+skills-lock.json
