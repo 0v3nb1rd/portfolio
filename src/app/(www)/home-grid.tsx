@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { ViewTransition } from "react";
 
 import { ExperienceList } from "@/components/experience-list";
 import { BgTTenSVG } from "@/components/icons/bg-tten";
+import { PageTransition } from "@/components/page-transition";
 import { SkillList } from "@/components/skill-list";
 import { siteConfig } from "@/config/site";
 
 export function HomeGrid() {
   return (
-    <ViewTransition name="page">
+    <PageTransition>
       <ul className="grid grid-cols-4 gap-5 lg:grid-cols-3">
         <li className="bg-card height-auto animate-in fade-in zoom-in-80 fill-mode-backwards relative col-span-full overflow-hidden rounded-md border shadow delay-100 duration-500 motion-reduce:animate-none lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-2">
           <div className="text-foreground relative flex h-full flex-col items-center justify-center p-4">
@@ -107,6 +107,6 @@ export function HomeGrid() {
           </div>
         </li>
       </ul>
-    </ViewTransition>
+    </PageTransition>
   );
 }

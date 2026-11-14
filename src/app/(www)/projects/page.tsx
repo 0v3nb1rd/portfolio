@@ -1,6 +1,6 @@
 import type { Metadata } from "next/types";
 
-import { PageMotion } from "@/components/page-motion";
+import { PageSuspense } from "@/components/page-suspense";
 import { ProjectList } from "@/components/projectPage/project-list";
 import { ProjectSkeleton } from "@/components/projectPage/project-skeleton";
 import { PROJECTS_QUERY } from "@/lib/queries";
@@ -22,9 +22,9 @@ export default function Projects() {
   return (
     <main id="projects" className="container mx-auto max-w-6xl">
       <section className="py-6 sm:py-12">
-        <PageMotion fallback={<ProjectSkeleton count={6} />}>
+        <PageSuspense fallback={<ProjectSkeleton count={6} />}>
           <ProjectsData />
-        </PageMotion>
+        </PageSuspense>
       </section>
     </main>
   );

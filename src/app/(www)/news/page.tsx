@@ -2,7 +2,7 @@ import type { Metadata } from "next/types";
 
 import { NewsList } from "@/components/newsPage/news-list";
 import { NewsSkeleton } from "@/components/newsPage/news-skeleton";
-import { PageMotion } from "@/components/page-motion";
+import { PageSuspense } from "@/components/page-suspense";
 import { getNews } from "@/lib/news";
 
 export const metadata: Metadata = {
@@ -23,9 +23,9 @@ export default async function News() {
   return (
     <main id="news" className="container mx-auto max-w-6xl">
       <section className="py-6 sm:py-12">
-        <PageMotion fallback={<NewsSkeleton count={15} />}>
+        <PageSuspense fallback={<NewsSkeleton count={15} />}>
           <NewsData />
-        </PageMotion>
+        </PageSuspense>
       </section>
     </main>
   );

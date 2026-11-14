@@ -190,6 +190,71 @@
   }
 }
 
+/* //////////////////////////////////////////////////////////////////////////////// */
+/* //// View Transitions (<ViewTransition> classes, see page-transition.tsx) */
+/* //////////////////////////////////////////////////////////////////////////////// */
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-slide-up {
+  from {
+    translate: 0 30px;
+  }
+}
+
+@keyframes vt-slide-down {
+  from {
+    translate: 0 -6px;
+  }
+}
+
+::view-transition-old(.page-exit) {
+  animation: 150ms ease-out both vt-fade-out;
+}
+
+::view-transition-new(.page-enter) {
+  /* Same feel as the former Motion page entrance: 30px rise, 400ms, ease [0.4, 0, 0.2, 1] */
+  animation:
+    400ms cubic-bezier(0.4, 0, 0.2, 1) 50ms both vt-fade-in,
+    400ms cubic-bezier(0.4, 0, 0.2, 1) 50ms both vt-slide-up;
+}
+
+::view-transition-new(.status-enter) {
+  animation:
+    200ms ease-out both vt-fade-in,
+    200ms ease-out both vt-slide-down;
+}
+
+::view-transition-old(.status-exit) {
+  animation: 120ms ease-in both vt-fade-out;
+}
+
+/* New-only groups are appended after the header group — keep the sticky header on top */
+::view-transition-group(site-header) {
+  z-index: 50;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* No size/position morphs; snapshots only cross-fade */
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+  }
+
+  ::view-transition-new(.page-enter),
+  ::view-transition-new(.status-enter) {
+    animation: 200ms ease-out both vt-fade-in;
+  }
+}
+
 @utility container {
   @apply mx-auto max-w-[1272px] px-4 sm:px-6;
 }
@@ -234,6 +299,10 @@
       );
       background-size: 400%;
       animation: glowing 20s linear infinite;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation-play-state: paused;
+      }
     }
 
     &:after {

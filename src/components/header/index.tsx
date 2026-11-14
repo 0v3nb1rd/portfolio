@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-colors duration-300",
+        "sticky top-0 z-50 border-b transition-colors duration-300 [view-transition-name:site-header]",
         scrolled ? "border-border/40 bg-background/70 backdrop-blur-md" : "border-transparent bg-transparent"
       )}
     >

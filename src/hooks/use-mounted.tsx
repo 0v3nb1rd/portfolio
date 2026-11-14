@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const subscribe = () => () => {};
 
 /**
- * Hook to check if component is mounted on the client side.
- * Useful for preventing hydration mismatches with animations and client-only features.
- *
- * @returns {boolean} - true if component is mounted on client, false otherwise
+ * Returns `false` during SSR and hydration, `true` once rendered on the client.
+ * Components that mount later (client-side navigation) get `true` immediately,
+ * so entrance animations play on navigation but never on the first paint.
  *
  * @example
  * ```tsx
@@ -23,9 +24,9 @@ import { useState } from "react";
  * ```
  */
 export const useMounted = (): boolean => {
-  const [mounted] = useState(() => {
-    return typeof window !== "undefined";
-  });
-
-  return mounted;
+  return useSyncExternalStore(
+    subscribe,
+    () => true,
+    () => false
+  );
 };

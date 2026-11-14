@@ -28,7 +28,7 @@ export function ProjectCard({ project }: { project: Project }) {
     : undefined;
 
   return (
-    <li className="group grid grid-cols-4 grid-rows-1 gap-5">
+    <li className="group grid grid-cols-4 grid-rows-1 gap-5 [contain-intrinsic-size:auto_360px] [content-visibility:auto]">
       <div className="relative z-0 col-span-full rounded-md border shadow lg:col-start-1 lg:col-end-3 lg:row-start-1 lg:row-end-4">
         <div className="-bg-card postImage2D relative flex size-full items-center justify-center gap-4">
           <Image

@@ -8,7 +8,14 @@ type LoadingProps = {
 };
 
 const Spinner = ({ className, ...props }: React.ComponentProps<"svg">) => {
-  return <LoaderIcon role="status" aria-label="Loading" className={cn("size-4 animate-spin", className)} {...props} />;
+  return (
+    <LoaderIcon
+      role="status"
+      aria-label="Loading"
+      className={cn("size-4 animate-spin motion-reduce:[animation-play-state:paused]", className)}
+      {...props}
+    />
+  );
 };
 
 export function Loading({ className, fullScreen = false }: LoadingProps) {

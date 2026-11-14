@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, Variants } from "motion/react";
-import { useState } from "react";
+
+import { useMounted } from "@/hooks/use-mounted";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -47,12 +48,7 @@ const NewsCardSkeleton = () => {
 };
 
 export function NewsSkeleton({ count = 12 }: { count?: number }) {
-  const [mounted] = useState(() => {
-    if (typeof window !== "undefined") {
-      return true;
-    }
-    return false;
-  });
+  const mounted = useMounted();
 
   return (
     <motion.ul
@@ -61,7 +57,6 @@ export function NewsSkeleton({ count = 12 }: { count?: number }) {
       variants={containerVariants}
       initial={mounted ? "hidden" : false}
       animate={mounted ? "visible" : false}
-      suppressHydrationWarning
     >
       {Array.from({ length: count }).map((_, index) => (
         <motion.li
