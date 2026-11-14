@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link, { useLinkStatus } from "next/link";
 import { usePathname } from "next/navigation";
 
 import {
@@ -13,6 +13,20 @@ import {
 import { siteConfig } from "@/config/site";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+
+function PendingHint() {
+  const { pending } = useLinkStatus();
+
+  return (
+    <span
+      aria-hidden="true"
+      className={cn(
+        "bg-primary pointer-events-none absolute inset-x-3 bottom-1 h-0.5 rounded-full opacity-0 transition-opacity duration-200",
+        pending && "opacity-100 delay-150"
+      )}
+    />
+  );
+}
 
 export function NavMenu({ ...props }: React.ComponentProps<typeof NavigationMenu>) {
   const isMobile = useIsMobile();
@@ -27,11 +41,13 @@ export function NavMenu({ ...props }: React.ComponentProps<typeof NavigationMenu
               asChild
               className={cn(
                 navigationMenuTriggerStyle(),
+                "relative",
                 pathname === item.href && "bg-accent text-accent-foreground hover:bg-accent shadow-sm"
               )}
             >
               <Link target={item.target} href={item.href}>
                 {item.label}
+                <PendingHint />
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>

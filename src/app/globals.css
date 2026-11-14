@@ -253,6 +253,15 @@
   ::view-transition-new(.status-enter) {
     animation: 200ms ease-out both vt-fade-in;
   }
+
+  ::view-transition-old(page) {
+    animation: none;
+    opacity: 0;
+  }
+
+  ::view-transition-new(page) {
+    animation: 200ms ease-out both vt-fade-in;
+  }
 }
 
 @utility container {

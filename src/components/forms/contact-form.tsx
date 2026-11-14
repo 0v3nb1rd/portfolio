@@ -15,8 +15,6 @@ const LabelInputContainer = ({ children, className }: { children: React.ReactNod
 export const ContactForm = () => {
   const [currentState, formAction, isPending] = useActionState<FormState, FormData>(submitContactForm, {});
 
-  // Reset fields only on success: re-keying remounts the inputs. The key sits on the fields,
-  // not the <form>, so the status messages below keep a persistent parent and can animate in.
   const fieldsKey = currentState.success ? "success" : "form";
 
   return (
@@ -88,7 +86,6 @@ export const ContactForm = () => {
         <Input type="hidden" name="website" className="honeypot" tabIndex={-1} aria-hidden="true" autoComplete="off" />
       </Fragment>
 
-      {/* Live regions stay mounted so screen readers announce text inserted into them */}
       <div role="status" aria-live="polite">
         {currentState.success && currentState.message && (
           <ViewTransition enter="status-enter" exit="status-exit" default="none">
@@ -108,7 +105,6 @@ export const ContactForm = () => {
         )}
       </div>
 
-      {/* Glides when a status message pushes it down, instead of jumping */}
       <ViewTransition update="auto" default="none">
         <Button
           type="submit"
